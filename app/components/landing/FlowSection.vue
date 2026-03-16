@@ -78,85 +78,95 @@ onUnmounted(() => clearTimers())
 <template>
   <section id="features" class="how-section">
     <div class="how-inner">
-      <!-- Header -->
+
+      <!-- Header: SSR 포함 -->
       <div class="how-header">
         <span class="how-badge">How it works</span>
         <h2 class="how-title">이렇게 사용해요</h2>
         <p class="how-sub">홈에서 시작해 대화를 마치면 AI가 알아서 회고를 완성해 줍니다.</p>
       </div>
 
-      <!-- Body -->
-      <div class="how-body">
+      <!-- Body: 애니메이션만 ClientOnly -->
+      <ClientOnly>
+        <div class="how-body">
 
-        <!-- Left: phone + mobile caption -->
-        <div class="phone-col">
-          <div class="phone-shell">
-            <div class="phone-notch" />
-            <div class="phone-screen">
-              <transition name="screen-fade" mode="out-in">
-                <img
-                  :key="currentStep"a
-                  :src="steps[currentStep].image"
-                  :alt="steps[currentStep].label"
-                  class="screen-img"
-                />
+          <!-- Left: phone + mobile caption -->
+          <div class="phone-col">
+            <div class="phone-shell">
+              <div class="phone-notch" />
+              <div class="phone-screen">
+                <transition name="screen-fade" mode="out-in">
+                  <img
+                    :key="currentStep"
+                    :src="steps[currentStep].image"
+                    :alt="steps[currentStep].label"
+                    class="screen-img"
+                  />
+                </transition>
+              </div>
+            </div>
+
+            <!-- Mobile only caption -->
+            <div class="mobile-caption">
+              <transition name="caption-fade" mode="out-in">
+                <div :key="currentStep" class="caption-inner">
+                  <p class="caption-num">{{ steps[currentStep].number }}</p>
+                  <p class="caption-label">{{ steps[currentStep].label }}</p>
+                  <p class="caption-desc">{{ steps[currentStep].desc }}</p>
+                </div>
               </transition>
-            </div>
-          </div>
-
-          <!-- Mobile only caption -->
-          <div class="mobile-caption">
-            <transition name="caption-fade" mode="out-in">
-              <div :key="currentStep" class="caption-inner">
-                <p class="caption-num">{{ steps[currentStep].number }}</p>
-                <p class="caption-label">{{ steps[currentStep].label }}</p>
-                <p class="caption-desc">{{ steps[currentStep].desc }}</p>
-              </div>
-            </transition>
-            <div class="dots">
-              <button
-                v-for="(_, i) in steps"
-                :key="i"
-                class="dot"
-                :class="{ active: currentStep === i }"
-                @click="goTo(i)"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: steps list (desktop only) -->
-        <div class="steps-list">
-          <button
-            v-for="(step, i) in steps"
-            :key="i"
-            class="step-item"
-            :class="{ active: currentStep === i, done: currentStep > i }"
-            @click="goTo(i)"
-          >
-            <div class="step-left">
-              <span class="step-num">{{ step.number }}</span>
-              <div class="step-track">
-                <div
-                  class="step-fill"
-                  :style="{
-                    height:
-                      currentStep === i
-                        ? `${progress}%`
-                        : currentStep > i
-                        ? '100%'
-                        : '0%',
-                  }"
+              <div class="dots">
+                <button
+                  v-for="(_, i) in steps"
+                  :key="i"
+                  class="dot"
+                  :class="{ active: currentStep === i }"
+                  @click="goTo(i)"
                 />
               </div>
             </div>
-            <div class="step-right">
-              <p class="step-label">{{ step.label }}</p>
-              <p class="step-desc">{{ step.desc }}</p>
-            </div>
-          </button>
+          </div>
+
+          <!-- Right: steps list (desktop only) -->
+          <div class="steps-list">
+            <button
+              v-for="(step, i) in steps"
+              :key="i"
+              class="step-item"
+              :class="{ active: currentStep === i, done: currentStep > i }"
+              @click="goTo(i)"
+            >
+              <div class="step-left">
+                <span class="step-num">{{ step.number }}</span>
+                <div class="step-track">
+                  <div
+                    class="step-fill"
+                    :style="{
+                      height:
+                        currentStep === i
+                          ? `${progress}%`
+                          : currentStep > i
+                          ? '100%'
+                          : '0%',
+                    }"
+                  />
+                </div>
+              </div>
+              <div class="step-right">
+                <p class="step-label">{{ step.label }}</p>
+                <p class="step-desc">{{ step.desc }}</p>
+              </div>
+            </button>
+          </div>
+
         </div>
-      </div>
+
+        <!-- SSR fallback -->
+        <template #fallback>
+          <div class="how-body-placeholder" />
+        </template>
+      </ClientOnly>
+
     </div>
   </section>
 </template>
@@ -451,12 +461,10 @@ onUnmounted(() => clearTimers())
     align-items: center;
   }
 
-  /* Show caption on mobile */
   .mobile-caption {
     display: flex;
   }
 
-  /* Hide desktop step list on mobile */
   .steps-list {
     display: none;
   }
@@ -469,5 +477,9 @@ onUnmounted(() => clearTimers())
 @keyframes floatY {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-10px); }
+}
+
+.how-body-placeholder {
+  height: 520px;
 }
 </style>

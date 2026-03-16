@@ -2,7 +2,12 @@
 import { onMounted, ref } from 'vue'
 
 const scrollTo = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const el = document.getElementById(id)
+  if (!el) return
+  window.scrollTo({
+    top: el.getBoundingClientRect().top + window.scrollY,
+    behavior: 'smooth'
+  })
 }
 
 // Typewriter for the AI question bubble
