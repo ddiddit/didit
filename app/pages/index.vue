@@ -10,9 +10,9 @@ useSeoMeta({
 <template>
   <div>
     <LandingHeroSection />
+    <LandingProblemSection />
     <LandingFlowSection />
     <LandingFeatureSection />
-    <LandingProblemSection />
     <LandingCTASection />
   </div>
 </template>
