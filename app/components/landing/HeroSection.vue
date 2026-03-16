@@ -28,7 +28,6 @@ const settle = (e: AnimationEvent) => {
 }
 
 onMounted(() => {
-  // 타이틀 타이핑
   let i = 0
   const titleTimer = setInterval(() => {
     typedTitle.value = titleFullText.slice(0, ++i)
@@ -38,7 +37,6 @@ onMounted(() => {
     }
   }, 55)
 
-  // 질문 타이핑 - 동시에 시작
   let j = 0
   const t = setInterval(() => {
     typedQuestion.value = questionFullText.slice(0, ++j)
@@ -61,39 +59,39 @@ onMounted(() => {
 
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-badge">AI 업무 회고 서비스</div>
+        <div class="hero-badge label-2 font-semibold">AI 업무 회고 서비스</div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title font-black">
           <template v-for="(line, idx) in titleBefore(typedTitle).split('\n')" :key="idx">
             <br v-if="idx > 0" />{{ line }}
           </template><em>{{ titleHighlight(typedTitle) }}</em><span v-if="!titleDone" class="caret" />
         </h1>
 
-        <p class="hero-desc">
+        <p class="hero-desc body-1-reading font-regular">
           Didit은 기획자, 개발자, 디자이너가 AI와 대화하며
           오늘 한 일과 막힌 지점, 배운 점을 돌아보고
           피드백과 인사이트까지 쌓을 수 있는 업무 회고 앱입니다.
         </p>
 
         <div class="hero-btns">
-          <button type="button" class="btn-primary" @click="scrollTo('waitlist')">베타 신청하기</button>
-          <button type="button" class="btn-ghost" @click="scrollTo('features')">기능 미리보기</button>
+          <button type="button" class="btn-primary body-2-normal font-bold" @click="scrollTo('waitlist')">베타 신청하기</button>
+          <button type="button" class="btn-ghost body-2-normal font-semibold" @click="scrollTo('features')">기능 미리보기</button>
         </div>
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-val">3분</span>
-            <span class="stat-desc">짧고 가벼운 회고</span>
+            <span class="stat-val font-extrabold">3분</span>
+            <span class="stat-desc caption-1 font-regular">짧고 가벼운 회고</span>
           </div>
           <div class="stat-divider" />
           <div class="stat">
-            <span class="stat-val">AI</span>
-            <span class="stat-desc">피드백 자동 생성</span>
+            <span class="stat-val font-extrabold">AI</span>
+            <span class="stat-desc caption-1 font-regular">피드백 자동 생성</span>
           </div>
           <div class="stat-divider" />
           <div class="stat">
-            <span class="stat-val">STT</span>
-            <span class="stat-desc">말하기로 기록</span>
+            <span class="stat-val font-extrabold">STT</span>
+            <span class="stat-desc caption-1 font-regular">말하기로 기록</span>
           </div>
         </div>
       </div>
@@ -103,10 +101,10 @@ onMounted(() => {
         <div class="blob blob-b" />
 
         <div class="bubble bubble-ai float-a">
-          <div class="bubble-avatar">디</div>
+          <div class="bubble-avatar font-extrabold">디</div>
           <div class="bubble-body">
-            <span class="bubble-sender">Didit AI</span>
-            <p class="bubble-text">
+            <span class="bubble-sender caption-2 font-semibold">Didit AI</span>
+            <p class="bubble-text label-1-normal font-regular">
               {{ typedQuestion }}<span v-if="typedQuestion.length < questionFullText.length && titleDone" class="caret" />
             </p>
           </div>
@@ -118,9 +116,9 @@ onMounted(() => {
             @animationend="settle"
         >
           <div class="bubble-body">
-            <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
+            <p class="bubble-text label-1-normal font-regular">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
           </div>
-          <div class="bubble-avatar user-avatar">딧</div>
+          <div class="bubble-avatar user-avatar font-extrabold">딧</div>
         </div>
 
         <div
@@ -128,9 +126,9 @@ onMounted(() => {
             class="bubble bubble-ai float-c bubble-pop"
             @animationend="settle"
         >
-          <div class="bubble-avatar">디</div>
+          <div class="bubble-avatar font-extrabold">디</div>
           <div class="bubble-body">
-            <p class="bubble-text">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
+            <p class="bubble-text label-1-normal font-regular">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
           </div>
         </div>
 
@@ -140,9 +138,9 @@ onMounted(() => {
             @animationend="settle"
         >
           <div class="bubble-body">
-            <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
+            <p class="bubble-text label-1-normal font-regular">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
           </div>
-          <div class="bubble-avatar user-avatar">딧</div>
+          <div class="bubble-avatar user-avatar font-extrabold">딧</div>
         </div>
 
         <div
@@ -150,17 +148,17 @@ onMounted(() => {
             class="insight-card float-e bubble-pop"
             @animationend="settle"
         >
-          <div class="insight-header">
+          <div class="insight-header caption-2 font-bold">
             <span class="insight-dot" />
             AI 피드백
           </div>
-          <p class="insight-body">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
+          <p class="insight-body label-2 font-regular">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
         </div>
       </div>
     </div>
 
     <div class="scroll-hint">
-      <span class="scroll-hint-text">Scroll</span>
+      <span class="scroll-hint-text caption-2 font-semibold">Scroll</span>
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M8 3v10M8 13l-4-4M8 13l4-4" stroke="#3DDB99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -174,7 +172,6 @@ onMounted(() => {
   overflow: hidden;
   background: #0b0f14;
   color: white;
-  font-family: 'Pretendard', -apple-system, sans-serif;
 }
 
 .bg-glow {
@@ -183,21 +180,9 @@ onMounted(() => {
   pointer-events: none;
   filter: blur(90px);
 }
-.bg-glow-1 {
-  width: 500px; height: 500px;
-  top: -15%; left: -10%;
-  background: rgba(61,219,153,0.13);
-}
-.bg-glow-2 {
-  width: 400px; height: 400px;
-  bottom: -10%; right: -5%;
-  background: rgba(61,219,153,0.08);
-}
-.bg-glow-3 {
-  width: 300px; height: 300px;
-  top: 40%; right: 20%;
-  background: rgba(61,219,153,0.06);
-}
+.bg-glow-1 { width: 500px; height: 500px; top: -15%; left: -10%; background: rgba(61,219,153,0.13); }
+.bg-glow-2 { width: 400px; height: 400px; bottom: -10%; right: -5%; background: rgba(61,219,153,0.08); }
+.bg-glow-3 { width: 300px; height: 300px; top: 40%; right: 20%; background: rgba(61,219,153,0.06); }
 
 .hero-inner {
   position: relative;
@@ -212,9 +197,7 @@ onMounted(() => {
   min-height: 100svh;
 }
 
-.hero-text {
-  max-width: 520px;
-}
+.hero-text { max-width: 520px; }
 
 .hero-badge {
   display: inline-flex;
@@ -222,8 +205,6 @@ onMounted(() => {
   border: 1px solid rgba(61,219,153,0.35);
   background: rgba(61,219,153,0.08);
   color: #3DDB99;
-  font-size: 12px;
-  font-weight: 600;
   letter-spacing: 0.04em;
   padding: 6px 16px;
   border-radius: 999px;
@@ -232,7 +213,6 @@ onMounted(() => {
 
 .hero-title {
   font-size: clamp(34px, 4vw, 58px);
-  font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin-bottom: 22px;
@@ -245,8 +225,6 @@ onMounted(() => {
 }
 
 .hero-desc {
-  font-size: 16px;
-  line-height: 1.8;
   color: rgba(255,255,255,0.55);
   margin-bottom: 40px;
 }
@@ -261,13 +239,11 @@ onMounted(() => {
 .btn-primary {
   background: #3DDB99;
   color: #061a10;
-  font-size: 15px;
-  font-weight: 700;
   padding: 14px 30px;
   border-radius: 14px;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s, opacity 0.15s;
+  transition: opacity 0.15s;
   letter-spacing: -0.01em;
 }
 .btn-primary:hover { opacity: 0.92; }
@@ -275,8 +251,6 @@ onMounted(() => {
 .btn-ghost {
   background: transparent;
   color: rgba(255,255,255,0.75);
-  font-size: 15px;
-  font-weight: 600;
   padding: 14px 28px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.1);
@@ -299,15 +273,11 @@ onMounted(() => {
 
 .stat-val {
   font-size: 22px;
-  font-weight: 800;
-  color: white;
   letter-spacing: -0.02em;
+  color: white;
 }
 
-.stat-desc {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-}
+.stat-desc { color: rgba(255,255,255,0.4); }
 
 .stat-divider {
   width: 1px;
@@ -321,7 +291,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 14px;
+  gap: 32px;
 }
 
 .blob {
@@ -330,16 +300,8 @@ onMounted(() => {
   pointer-events: none;
   filter: blur(60px);
 }
-.blob-a {
-  width: 280px; height: 280px;
-  top: 10%; left: -5%;
-  background: rgba(61,219,153,0.12);
-}
-.blob-b {
-  width: 200px; height: 200px;
-  bottom: 10%; right: 0;
-  background: rgba(61,219,153,0.07);
-}
+.blob-a { width: 280px; height: 280px; top: 10%; left: -5%; background: rgba(61,219,153,0.12); }
+.blob-b { width: 200px; height: 200px; bottom: 10%; right: 0; background: rgba(61,219,153,0.07); }
 
 .bubble {
   display: flex;
@@ -349,10 +311,7 @@ onMounted(() => {
 }
 
 .bubble-ai { align-self: flex-start; }
-.bubble-user {
-  align-self: flex-end;
-  flex-direction: row-reverse;
-}
+.bubble-user { align-self: flex-end; flex-direction: row-reverse; }
 
 .bubble-avatar {
   width: 32px;
@@ -364,7 +323,6 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  font-weight: 800;
   color: #3DDB99;
   flex-shrink: 0;
   padding-top: 3px;
@@ -384,8 +342,6 @@ onMounted(() => {
 }
 
 .bubble-sender {
-  font-size: 10px;
-  font-weight: 600;
   color: #3DDB99;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -397,7 +353,6 @@ onMounted(() => {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   padding: 12px 16px;
-  font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.88);
 }
@@ -436,8 +391,6 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 11px;
-  font-weight: 700;
   color: #3DDB99;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -457,11 +410,7 @@ onMounted(() => {
   50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-.insight-body {
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.75);
-}
+.insight-body { color: rgba(255,255,255,0.75); }
 
 .bubble-pop {
   animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -474,14 +423,8 @@ onMounted(() => {
 }
 
 @keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.88) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.88) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .scroll-hint {
@@ -498,11 +441,9 @@ onMounted(() => {
 }
 
 .scroll-hint-text {
-  font-size: 11px;
-  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255,255,255,0.35);
 }
 
 @keyframes scrollBounce {
@@ -511,10 +452,7 @@ onMounted(() => {
 }
 
 @media (max-width: 1024px) {
-  .hero-inner {
-    padding: 80px 32px 80px;
-    gap: 48px;
-  }
+  .hero-inner { padding: 80px 32px 80px; gap: 48px; }
 }
 
 @media (max-width: 768px) {
@@ -525,36 +463,14 @@ onMounted(() => {
     gap: 48px;
     text-align: center;
   }
-
-  .scroll-hint {
-    bottom: 20px;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-
-  .hero-badge,
-  .hero-btns,
-  .hero-stats {
-    justify-content: center;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-  }
+  .hero-text { max-width: 100%; }
+  .hero-badge, .hero-btns, .hero-stats { justify-content: center; }
+  .hero-btns { flex-direction: column; }
   .hero-badge { margin-left: auto; margin-right: auto; }
-
-  .bubbles-wrap {
-    min-height: 420px;
-    height: auto;
-    gap: 12px;
-    justify-content: flex-start;
-    padding-top: 8px;
-  }
-
+  .bubbles-wrap { min-height: 420px; height: auto; gap: 20px; justify-content: flex-start; padding: 8px 0 32px 0; }
   .bubble-ai { max-width: 90%; }
   .bubble-user { max-width: 90%; }
   .insight-card { max-width: 90%; }
+  .scroll-hint { bottom: 20px; }
 }
 </style>

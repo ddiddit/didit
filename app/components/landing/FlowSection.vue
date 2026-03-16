@@ -80,9 +80,9 @@ onUnmounted(() => clearTimers())
     <div class="how-inner">
 
       <div class="how-header">
-        <span class="how-badge">How it works</span>
-        <h2 class="how-title">이렇게 사용해요</h2>
-        <p class="how-sub">홈에서 시작해 대화를 마치면 AI가 알아서 회고를 완성해 줍니다.</p>
+        <span class="how-badge label-2 font-semibold">How it works</span>
+        <h2 class="how-title font-extrabold">이렇게 사용해요</h2>
+        <p class="how-sub body-1-reading font-regular">홈에서 시작해 대화를 마치면 AI가 알아서 회고를 완성해 줍니다.</p>
       </div>
 
       <div class="how-body">
@@ -93,10 +93,10 @@ onUnmounted(() => clearTimers())
             <div class="phone-screen">
               <transition name="screen-fade" mode="out-in">
                 <img
-                  :key="currentStep"
-                  :src="steps[currentStep].image"
-                  :alt="steps[currentStep].label"
-                  class="screen-img"
+                    :key="currentStep"
+                    :src="steps[currentStep].image"
+                    :alt="steps[currentStep].label"
+                    class="screen-img"
                 />
               </transition>
             </div>
@@ -105,18 +105,18 @@ onUnmounted(() => clearTimers())
           <div class="mobile-caption">
             <transition name="caption-fade" mode="out-in">
               <div :key="currentStep" class="caption-inner">
-                <p class="caption-num">{{ steps[currentStep].number }}</p>
-                <p class="caption-label">{{ steps[currentStep].label }}</p>
-                <p class="caption-desc">{{ steps[currentStep].desc }}</p>
+                <p class="caption-num caption-2 font-bold">{{ steps[currentStep].number }}</p>
+                <p class="caption-label heading-1 font-extrabold">{{ steps[currentStep].label }}</p>
+                <p class="caption-desc label-1-reading font-regular">{{ steps[currentStep].desc }}</p>
               </div>
             </transition>
             <div class="dots">
               <button
-                v-for="(_, i) in steps"
-                :key="i"
-                class="dot"
-                :class="{ active: currentStep === i }"
-                @click="goTo(i)"
+                  v-for="(_, i) in steps"
+                  :key="i"
+                  class="dot"
+                  :class="{ active: currentStep === i }"
+                  @click="goTo(i)"
               />
             </div>
           </div>
@@ -124,18 +124,18 @@ onUnmounted(() => clearTimers())
 
         <div class="steps-list">
           <button
-            v-for="(step, i) in steps"
-            :key="i"
-            class="step-item"
-            :class="{ active: currentStep === i, done: currentStep > i }"
-            @click="goTo(i)"
+              v-for="(step, i) in steps"
+              :key="i"
+              class="step-item"
+              :class="{ active: currentStep === i, done: currentStep > i }"
+              @click="goTo(i)"
           >
             <div class="step-left">
-              <span class="step-num">{{ step.number }}</span>
+              <span class="step-num caption-2 font-bold">{{ step.number }}</span>
               <div class="step-track">
                 <div
-                  class="step-fill"
-                  :style="{
+                    class="step-fill"
+                    :style="{
                     height:
                       currentStep === i
                         ? `${progress}%`
@@ -147,8 +147,8 @@ onUnmounted(() => clearTimers())
               </div>
             </div>
             <div class="step-right">
-              <p class="step-label">{{ step.label }}</p>
-              <p class="step-desc">{{ step.desc }}</p>
+              <p class="step-label body-1-normal font-bold">{{ step.label }}</p>
+              <p class="step-desc label-1-reading font-regular">{{ step.desc }}</p>
             </div>
           </button>
         </div>
@@ -163,7 +163,6 @@ onUnmounted(() => clearTimers())
   background: #0b0f14;
   padding: 100px 24px;
   color: white;
-  font-family: 'Pretendard', -apple-system, sans-serif;
 }
 
 .how-inner {
@@ -181,8 +180,6 @@ onUnmounted(() => clearTimers())
   border: 1px solid rgba(61, 219, 153, 0.3);
   background: rgba(61, 219, 153, 0.08);
   color: #3ddb99;
-  font-size: 12px;
-  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 6px 14px;
@@ -192,7 +189,6 @@ onUnmounted(() => clearTimers())
 
 .how-title {
   font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
   letter-spacing: -0.025em;
   margin-bottom: 14px;
   line-height: 1.2;
@@ -200,8 +196,6 @@ onUnmounted(() => clearTimers())
 
 .how-sub {
   color: rgba(255, 255, 255, 0.5);
-  font-size: 16px;
-  line-height: 1.7;
 }
 
 .how-body {
@@ -224,8 +218,8 @@ onUnmounted(() => clearTimers())
   border-radius: 46px;
   background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.03));
   box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      0 40px 80px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
   position: relative;
   animation: floatY 6s ease-in-out infinite;
   flex-shrink: 0;
@@ -284,24 +278,9 @@ onUnmounted(() => clearTimers())
   min-height: 80px;
 }
 
-.caption-num {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #3ddb99;
-}
-
-.caption-label {
-  font-size: 20px;
-  font-weight: 800;
-  color: white;
-  letter-spacing: -0.02em;
-  line-height: 1.3;
-}
-
+.caption-num { color: #3ddb99; }
+.caption-label { color: white; letter-spacing: -0.02em; }
 .caption-desc {
-  font-size: 14px;
-  line-height: 1.65;
   color: rgba(255, 255, 255, 0.55);
   max-width: 320px;
   margin: 0 auto;
@@ -376,8 +355,6 @@ onUnmounted(() => clearTimers())
 }
 
 .step-num {
-  font-size: 11px;
-  font-weight: 700;
   letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.2);
   transition: color 0.3s;
@@ -407,20 +384,15 @@ onUnmounted(() => clearTimers())
 }
 
 .step-label {
-  font-size: 16px;
-  font-weight: 700;
   color: rgba(255, 255, 255, 0.28);
   margin-bottom: 5px;
   transition: color 0.3s;
-  line-height: 1.3;
 }
 
 .step-item.active .step-label { color: white; }
 .step-item.done  .step-label  { color: rgba(255, 255, 255, 0.45); }
 
 .step-desc {
-  font-size: 13.5px;
-  line-height: 1.65;
   color: rgba(255, 255, 255, 0.22);
   transition: color 0.3s;
 }
@@ -428,7 +400,7 @@ onUnmounted(() => clearTimers())
 .step-item.active .step-desc { color: rgba(255, 255, 255, 0.6); }
 .step-item.done  .step-desc  { color: rgba(255, 255, 255, 0.32); }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .how-body {
     grid-template-columns: 1fr;
     gap: 0;
@@ -450,5 +422,4 @@ onUnmounted(() => clearTimers())
     margin-bottom: 40px;
   }
 }
-
 </style>

@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  css: [
+      '~/assets/css/fonts.css',
+      '~/assets/css/typography.css',
+  ],
+
   runtimeConfig: {
     public: {
       supabaseUrl: '',

@@ -1,0 +1,27 @@
+/* ── Base Typography ── */
+
+.title-1   { font-size: 28px; line-height: 1.38; letter-spacing: -0.02em; }
+.title-2   { font-size: 24px; line-height: 1.40; letter-spacing: -0.02em; }
+.heading-1 { font-size: 20px; line-height: 1.40; letter-spacing: -0.02em; }
+.headline-1{ font-size: 18px; line-height: 1.40; letter-spacing: -0.02em; }
+
+.body-1-normal  { font-size: 16px; line-height: 1.50; letter-spacing: -0.02em; }
+.body-1-reading { font-size: 16px; line-height: 1.60; letter-spacing: -0.02em; }
+.body-2-normal  { font-size: 15px; line-height: 1.50; letter-spacing: -0.02em; }
+.body-2-reading { font-size: 15px; line-height: 1.50; letter-spacing: -0.02em; }
+
+.label-1-normal  { font-size: 14px; line-height: 1.40; letter-spacing: -0.02em; }
+.label-1-reading { font-size: 14px; line-height: 1.60; letter-spacing: -0.02em; }
+.label-2         { font-size: 13px; line-height: 1.40; letter-spacing: -0.02em; }
+
+.caption-1 { font-size: 12px; line-height: 1.36; letter-spacing: -0.02em; }
+.caption-2 { font-size: 11px; line-height: 1.30; letter-spacing: -0.02em; }
+
+/* ── Font Weight ── */
+
+.font-regular    { font-weight: 400; }
+.font-medium     { font-weight: 500; }
+.font-semibold   { font-weight: 600; }
+.font-bold       { font-weight: 700; }
+.font-extrabold  { font-weight: 800; }
+.font-black      { font-weight: 900; }

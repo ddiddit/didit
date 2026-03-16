@@ -36,8 +36,8 @@ const submitWaitlist = async () => {
     const supabase = useSupabase()
 
     const { error } = await supabase
-      .from('waitlist')
-      .insert([{ email: email.value.trim(), source: 'landing' }])
+        .from('waitlist')
+        .insert([{ email: email.value.trim(), source: 'landing' }])
 
     if (error) {
       const message = error.message?.toLowerCase?.() ?? ''
@@ -66,15 +66,16 @@ const submitWaitlist = async () => {
 <template>
   <section id="waitlist" class="bg-[#0b0f14] text-white">
     <div class="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8">
-      <div class="inline-flex items-center rounded-full border border-[#3DDB99]/35 bg-[#3DDB99]/[0.08] px-4 py-1.5 text-xs font-semibold tracking-widest text-[#3DDB99]">
+
+      <div class="inline-flex items-center rounded-full border border-[#3DDB99]/35 bg-[#3DDB99]/[0.08] px-4 py-1.5 text-[#3DDB99] label-2 font-semibold tracking-widest">
         Beta
       </div>
 
-      <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+      <h2 class="mt-3 tracking-tight waitlist-title font-bold">
         Didit을 가장 먼저 만나보세요
       </h2>
 
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/70">
+      <p class="mx-auto mt-5 max-w-2xl text-white/70 body-1-reading font-regular">
         하루의 업무를 더 가볍게 돌아보는 회고 습관.
         베타 오픈 소식을 가장 먼저 받아보세요.
       </p>
@@ -83,18 +84,18 @@ const submitWaitlist = async () => {
         <div v-if="!isSubmitted" class="rounded-[28px] border border-white/10 bg-white/5 p-4 sm:p-6">
           <div class="flex flex-col gap-3 sm:flex-row">
             <input
-              v-model="email"
-              type="email"
-              placeholder="이메일을 입력해주세요"
-              class="h-14 w-full rounded-2xl border border-white/10 bg-[#1A1F26] px-5 text-base text-white placeholder:text-white/35 outline-none transition focus:border-[#3DDB99]/50 focus:ring-2 focus:ring-[#3DDB99]/20"
-              @keyup.enter="submitWaitlist"
+                v-model="email"
+                type="email"
+                placeholder="이메일을 입력해주세요"
+                class="h-14 w-full rounded-2xl border border-white/10 bg-[#1A1F26] px-5 text-white placeholder:text-white/35 outline-none transition focus:border-[#3DDB99]/50 focus:ring-2 focus:ring-[#3DDB99]/20 body-1-normal font-regular"
+                @keyup.enter="submitWaitlist"
             />
 
             <button
-              type="button"
-              class="h-14 shrink-0 rounded-2xl bg-[#3DDB99] px-6 text-base font-semibold text-[#0b0f14] transition hover:brightness-95 disabled:opacity-60 sm:min-w-[160px]"
-              :disabled="isLoading"
-              @click="submitWaitlist"
+                type="button"
+                class="h-14 shrink-0 rounded-2xl bg-[#3DDB99] px-6 text-[#0b0f14] transition hover:brightness-95 disabled:opacity-60 sm:min-w-[160px] body-2-normal font-semibold"
+                :disabled="isLoading"
+                @click="submitWaitlist"
             >
               {{ isLoading ? '신청 중...' : '출시 알림 신청' }}
             </button>
@@ -102,41 +103,41 @@ const submitWaitlist = async () => {
 
           <div class="mt-3 flex items-start gap-2">
             <input
-              id="agree"
-              v-model="isAgreed"
-              type="checkbox"
-              class="mt-0.5 h-4 w-4 cursor-pointer accent-[#3DDB99]"
+                id="agree"
+                v-model="isAgreed"
+                type="checkbox"
+                class="mt-0.5 h-4 w-4 cursor-pointer accent-[#3DDB99]"
             />
-            <label for="agree" class="cursor-pointer text-left text-sm text-white/60">
-              <span class="text-white/80">[필수]</span>
+            <label for="agree" class="cursor-pointer text-left text-white/60 label-2 font-regular">
+              <span class="text-white/80 font-semibold">[필수]</span>
               개인정보 수집·이용에 동의합니다.
               <NuxtLink
-                to="/privacy"
-                class="ml-1 text-white/40 underline transition hover:text-white/60"
+                  to="/privacy"
+                  class="ml-1 text-white/40 underline transition hover:text-white/60"
               >
                 내용 보기
               </NuxtLink>
             </label>
           </div>
 
-          <p v-if="errorMessage" class="mt-3 text-left text-sm text-[#ff8f8f]">
+          <p v-if="errorMessage" class="mt-3 text-left text-[#ff8f8f] label-2 font-regular">
             {{ errorMessage }}
           </p>
 
-          <p class="mt-4 text-left text-sm leading-6 text-white/45">
+          <p class="mt-4 text-left text-white/45 label-2 font-regular">
             이메일은 베타 오픈 알림 및 서비스 소식 안내에만 사용됩니다.
           </p>
         </div>
 
         <div
-          v-else
-          class="rounded-[28px] border border-[#3DDB99]/20 bg-[#3DDB99]/10 p-6 text-left"
+            v-else
+            class="rounded-[28px] border border-[#3DDB99]/20 bg-[#3DDB99]/10 p-6 text-left"
         >
-          <p class="text-sm font-semibold text-[#3DDB99]">신청 완료</p>
-          <h3 class="mt-2 text-xl font-semibold text-white">
+          <p class="text-[#3DDB99] label-2 font-semibold">신청 완료</p>
+          <h3 class="mt-2 text-white heading-1 font-semibold">
             출시 알림 신청이 완료되었어요
           </h3>
-          <p class="mt-3 leading-7 text-white/70">
+          <p class="mt-3 text-white/70 body-1-reading font-regular">
             Didit의 베타 오픈 소식을 가장 먼저 보내드릴게요.
           </p>
         </div>
@@ -144,3 +145,11 @@ const submitWaitlist = async () => {
     </div>
   </section>
 </template>
+
+<style scoped>
+.waitlist-title {
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+</style>
