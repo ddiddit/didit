@@ -70,8 +70,8 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 @media (max-width: 768px) {
   .back-to-top {
-    bottom: 20px;
-    right: 20px;
+    bottom: 40px;
+    right: 24px;
   }
 }
 </style>

@@ -35,6 +35,10 @@ useHead({
     },
   ],
 })
+
+if (import.meta.client) {
+  history.scrollRestoration = 'manual'
+}
 </script>
 
 <template>
