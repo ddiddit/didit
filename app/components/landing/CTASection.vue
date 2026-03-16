@@ -78,7 +78,7 @@ const submitWaitlist = async () => {
       </p>
 
       <div class="mx-auto mt-10 w-full max-w-2xl">
-        <div v-if="!isSubmitted">
+        <div v-if="!isSubmitted" class="rounded-[28px] border border-white/10 bg-white/5 p-4 sm:p-6">
           <div class="flex flex-col gap-3 sm:flex-row">
             <input
               v-model="email"
@@ -87,7 +87,7 @@ const submitWaitlist = async () => {
               class="h-14 w-full rounded-2xl border border-white/10 bg-[#1A1F26] px-5 text-base text-white placeholder:text-white/35 outline-none transition focus:border-[#3DDB99]/50 focus:ring-2 focus:ring-[#3DDB99]/20"
               @keyup.enter="submitWaitlist"
             />
-            
+
             <button
               type="button"
               class="h-14 shrink-0 rounded-2xl bg-[#3DDB99] px-6 text-base font-semibold text-[#0b0f14] transition hover:brightness-95 disabled:opacity-60 sm:min-w-[160px]"
