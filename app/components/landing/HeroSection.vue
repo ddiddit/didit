@@ -85,7 +85,7 @@ onMounted(() => {
 
         <!-- AI question bubble — always visible, typewriter -->
         <div class="bubble bubble-ai float-a">
-          <div class="bubble-avatar">d</div>
+          <div class="bubble-avatar">디</div>
           <div class="bubble-body">
             <span class="bubble-sender">Didit AI</span>
             <p class="bubble-text">
@@ -100,14 +100,14 @@ onMounted(() => {
             <div class="bubble-body">
               <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
             </div>
-            <div class="bubble-avatar user-avatar">재</div>
+            <div class="bubble-avatar user-avatar">딧</div>
           </div>
         </transition>
 
         <!-- AI follow-up -->
         <transition name="pop">
           <div v-if="showAi2" class="bubble bubble-ai float-c">
-            <div class="bubble-avatar">d</div>
+            <div class="bubble-avatar">디</div>
             <div class="bubble-body">
               <p class="bubble-text">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
             </div>
@@ -120,7 +120,7 @@ onMounted(() => {
             <div class="bubble-body">
               <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
             </div>
-            <div class="bubble-avatar user-avatar">재</div>
+            <div class="bubble-avatar user-avatar">딧</div>
           </div>
         </transition>
 
@@ -321,6 +321,8 @@ onMounted(() => {
 .bubble {
   display: flex;
   align-items: center;
+  will-change: transform;
+  transform: translateZ(0);
   gap: 10px;
   max-width: 88%;
 }
@@ -376,7 +378,6 @@ onMounted(() => {
   font-size: 14px;
   line-height: 1.6;
   color: rgba(255,255,255,0.88);
-  backdrop-filter: blur(8px);
 }
 
 .bubble-user .bubble-text {
@@ -404,12 +405,13 @@ onMounted(() => {
 /* ── Insight card ── */
 .insight-card {
   align-self: flex-start;
+  will-change: transform;
+  transform: translateZ(0);
   background: linear-gradient(135deg, rgba(61,219,153,0.12), rgba(61,219,153,0.04));
   border: 1px solid rgba(61,219,153,0.25);
   border-radius: 16px;
   padding: 14px 18px;
   max-width: 82%;
-  backdrop-filter: blur(8px);
 }
 
 .insight-header {
@@ -444,19 +446,15 @@ onMounted(() => {
 }
 
 /* ── Float animations ── */
-.float-a { animation: floatA 7s ease-in-out infinite; }
-.float-b { animation: floatB 8s ease-in-out infinite; }
-.float-c { animation: floatA 6s ease-in-out infinite 1s; }
-.float-d { animation: floatB 9s ease-in-out infinite 0.5s; }
-.float-e { animation: floatA 7s ease-in-out infinite 1.5s; }
+.float-a { animation: floatUp 6s ease-in-out infinite; }
+.float-b { animation: floatUp 6s ease-in-out infinite 1.5s; }
+.float-c { animation: floatUp 6s ease-in-out infinite 0.8s; }
+.float-d { animation: floatUp 6s ease-in-out infinite 2.2s; }
+.float-e { animation: floatUp 6s ease-in-out infinite 0.4s; }
 
-@keyframes floatA {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
-}
-@keyframes floatB {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+@keyframes floatUp {
+  0%, 100% { transform: translateZ(0) translateY(0); }
+  50%       { transform: translateZ(0) translateY(-8px); }
 }
 
 /* ── Pop-in transition ── */
