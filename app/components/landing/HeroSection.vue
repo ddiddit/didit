@@ -368,6 +368,7 @@ onMounted(() => {
   color: #3DDB99;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  display: flex;
 }
 
 .bubble-text {
