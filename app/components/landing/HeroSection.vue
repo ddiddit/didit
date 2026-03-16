@@ -493,6 +493,9 @@ onMounted(() => {
     justify-content: center;
   }
 
+  .hero-btns {
+    flex-direction: column;
+  }
   .hero-badge { margin-left: auto; margin-right: auto; }
 
   .bubbles-wrap {
