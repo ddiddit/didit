@@ -7,6 +7,15 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
   ],
 
+  supabase: {
+    redirect: false,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      exclude: ['/*'],
+    },
+  },
+  
   app: {
     head: {
       htmlAttrs: { lang: 'ko' },
