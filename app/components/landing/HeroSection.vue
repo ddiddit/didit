@@ -49,7 +49,7 @@ onMounted(() => {
 
         <h1 class="hero-title">
           하루의 업무를<span class="title-br"><br /></span>
-          <em>대화로 정리하는</em><span class="title-br"><br /></span>
+          <em> 대화로 정리하는</em><span class="title-br"><br /></span>
           가장 쉬운 회고
         </h1>
 
