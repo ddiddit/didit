@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: '개인정보처리방침 | Didit',
+  title: '개인정보처리방침 | didit',
 })
 </script>
 
@@ -24,7 +24,7 @@ useSeoMeta({
         <section>
           <h2 class="text-white mb-3 body-1-normal font-semibold">2. 수집 및 이용 목적</h2>
           <ul class="list-disc list-inside space-y-1 body-1-reading font-regular">
-            <li>Didit 베타 서비스 출시 알림 발송</li>
+            <li>didit 베타 서비스 출시 알림 발송</li>
             <li>서비스 관련 주요 소식 안내</li>
           </ul>
         </section>
