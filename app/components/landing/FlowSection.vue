@@ -3,7 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const currentStep = ref(0)
 const progress = ref(0)
-const STEP_DURATION = 3500
+const STEP_DURATION = 2000
 let timer: ReturnType<typeof setTimeout> | null = null
 let progressTimer: ReturnType<typeof setInterval> | null = null
 
