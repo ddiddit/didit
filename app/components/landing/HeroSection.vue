@@ -244,7 +244,7 @@ onMounted(() => {
   transition: transform 0.15s, opacity 0.15s;
   letter-spacing: -0.01em;
 }
-.btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+.btn-primary:hover { opacity: 0.92; }
 
 .btn-ghost {
   background: transparent;
