@@ -66,7 +66,9 @@ const submitWaitlist = async () => {
 <template>
   <section id="waitlist" class="bg-[#0b0f14] text-white">
     <div class="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8">
-      <p class="text-sm font-semibold text-[#3DDB99]">Beta</p>
+      <div class="inline-flex items-center rounded-full border border-[#3DDB99]/35 bg-[#3DDB99]/[0.08] px-4 py-1.5 text-xs font-semibold tracking-widest text-[#3DDB99]">
+        Beta
+      </div>
 
       <h2 class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
         Didit을 가장 먼저 만나보세요

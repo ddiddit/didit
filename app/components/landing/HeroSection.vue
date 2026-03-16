@@ -4,11 +4,16 @@ import { onMounted, ref } from 'vue'
 const scrollTo = (id: string) => {
   const el = document.getElementById(id)
   if (!el) return
-  window.scrollTo({
-    top: el.getBoundingClientRect().top + window.scrollY,
-    behavior: 'smooth'
-  })
+  el.scrollIntoView({ behavior: 'smooth' })
 }
+
+const titleFullText = 'Growth through\nyour Didit.'
+const DIDIT_START = titleFullText.indexOf('Didit.')
+const typedTitle = ref('')
+const titleDone = ref(false)
+
+const titleBefore = (s: string) => s.slice(0, Math.min(s.length, DIDIT_START))
+const titleHighlight = (s: string) => s.length > DIDIT_START ? s.slice(DIDIT_START) : ''
 
 const questionFullText = '오늘 어떤 일을 하셨나요?'
 const typedQuestion = ref('')
@@ -23,10 +28,21 @@ const settle = (e: AnimationEvent) => {
 }
 
 onMounted(() => {
+  // 타이틀 타이핑
   let i = 0
+  const titleTimer = setInterval(() => {
+    typedTitle.value = titleFullText.slice(0, ++i)
+    if (i >= titleFullText.length) {
+      clearInterval(titleTimer)
+      titleDone.value = true
+    }
+  }, 55)
+
+  // 질문 타이핑 - 동시에 시작
+  let j = 0
   const t = setInterval(() => {
-    typedQuestion.value = questionFullText.slice(0, ++i)
-    if (i >= questionFullText.length) {
+    typedQuestion.value = questionFullText.slice(0, ++j)
+    if (j >= questionFullText.length) {
       clearInterval(t)
       setTimeout(() => { showUser1.value = true }, 400)
       setTimeout(() => { showAi2.value = true }, 1100)
@@ -48,9 +64,9 @@ onMounted(() => {
         <div class="hero-badge">AI 업무 회고 서비스</div>
 
         <h1 class="hero-title">
-          하루의 업무를<span class="title-br"><br /></span>
-          <em> 대화로 정리하는</em><span class="title-br"><br /></span>
-          가장 쉬운 회고
+          <template v-for="(line, idx) in titleBefore(typedTitle).split('\n')" :key="idx">
+            <br v-if="idx > 0" />{{ line }}
+          </template><em>{{ titleHighlight(typedTitle) }}</em><span v-if="!titleDone" class="caret" />
         </h1>
 
         <p class="hero-desc">
@@ -91,15 +107,15 @@ onMounted(() => {
           <div class="bubble-body">
             <span class="bubble-sender">Didit AI</span>
             <p class="bubble-text">
-              {{ typedQuestion }}<span v-if="typedQuestion.length < questionFullText.length" class="caret" />
+              {{ typedQuestion }}<span v-if="typedQuestion.length < questionFullText.length && titleDone" class="caret" />
             </p>
           </div>
         </div>
 
         <div
-          v-if="showUser1"
-          class="bubble bubble-user float-b bubble-pop"
-          @animationend="settle"
+            v-if="showUser1"
+            class="bubble bubble-user float-b bubble-pop"
+            @animationend="settle"
         >
           <div class="bubble-body">
             <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
@@ -108,9 +124,9 @@ onMounted(() => {
         </div>
 
         <div
-          v-if="showAi2"
-          class="bubble bubble-ai float-c bubble-pop"
-          @animationend="settle"
+            v-if="showAi2"
+            class="bubble bubble-ai float-c bubble-pop"
+            @animationend="settle"
         >
           <div class="bubble-avatar">디</div>
           <div class="bubble-body">
@@ -119,9 +135,9 @@ onMounted(() => {
         </div>
 
         <div
-          v-if="showUser2"
-          class="bubble bubble-user float-d bubble-pop"
-          @animationend="settle"
+            v-if="showUser2"
+            class="bubble bubble-user float-d bubble-pop"
+            @animationend="settle"
         >
           <div class="bubble-body">
             <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
@@ -130,9 +146,9 @@ onMounted(() => {
         </div>
 
         <div
-          v-if="showAi3"
-          class="insight-card float-e bubble-pop"
-          @animationend="settle"
+            v-if="showAi3"
+            class="insight-card float-e bubble-pop"
+            @animationend="settle"
         >
           <div class="insight-header">
             <span class="insight-dot" />
@@ -141,6 +157,13 @@ onMounted(() => {
           <p class="insight-body">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
         </div>
       </div>
+    </div>
+
+    <div class="scroll-hint">
+      <span class="scroll-hint-text">Scroll</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M8 13l-4-4M8 13l4-4" stroke="#3DDB99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </section>
 </template>
@@ -213,6 +236,7 @@ onMounted(() => {
   line-height: 1.15;
   letter-spacing: -0.03em;
   margin-bottom: 22px;
+  min-height: 1.15em;
 }
 
 .hero-title em {
@@ -443,7 +467,6 @@ onMounted(() => {
   animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* 애니메이션 종료 후 완전히 고정 - iOS Safari 재실행 방지 */
 .settled {
   animation: none !important;
   opacity: 1 !important;
@@ -461,6 +484,32 @@ onMounted(() => {
   }
 }
 
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: scrollBounce 2s ease-in-out infinite;
+  cursor: default;
+}
+
+.scroll-hint-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
 @media (max-width: 1024px) {
   .hero-inner {
     padding: 80px 32px 80px;
@@ -475,6 +524,10 @@ onMounted(() => {
     padding: 72px 24px 60px;
     gap: 48px;
     text-align: center;
+  }
+
+  .scroll-hint {
+    bottom: 20px;
   }
 
   .hero-text {
@@ -503,6 +556,5 @@ onMounted(() => {
   .bubble-ai { max-width: 90%; }
   .bubble-user { max-width: 90%; }
   .insight-card { max-width: 90%; }
-  .title-br { display: none; }
 }
 </style>
