@@ -54,8 +54,8 @@ onMounted(() => {
         </p>
 
         <div class="hero-btns">
-          <button class="btn-primary" @click="scrollTo('waitlist')">베타 신청하기</button>
-          <button class="btn-ghost" @click="scrollTo('features')">기능 미리보기</button>
+          <button type="button" class="btn-primary" @click="scrollTo('waitlist')">베타 신청하기</button>
+          <button type="button" class="btn-ghost" @click="scrollTo('features')">기능 미리보기</button>
         </div>
 
         <div class="hero-stats">
