@@ -19,7 +19,6 @@ const showUser2 = ref(false)
 const showAi3 = ref(false)
 
 onMounted(() => {
-  // type question
   let i = 0
   const t = setInterval(() => {
     typedQuestion.value = questionFullText.slice(0, ++i)
@@ -36,13 +35,11 @@ onMounted(() => {
 
 <template>
   <section class="hero">
-    <!-- Ambient background -->
     <div class="bg-glow bg-glow-1" />
     <div class="bg-glow bg-glow-2" />
     <div class="bg-glow bg-glow-3" />
 
     <div class="hero-inner">
-      <!-- LEFT: text -->
       <div class="hero-text">
         <div class="hero-badge">AI 업무 회고 서비스</div>
 
@@ -81,14 +78,10 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- RIGHT: floating bubbles -->
       <div class="bubbles-wrap" aria-hidden="true">
-
-        <!-- Decorative blur blobs behind bubbles -->
         <div class="blob blob-a" />
         <div class="blob blob-b" />
 
-        <!-- AI question bubble — always visible, typewriter -->
         <div class="bubble bubble-ai float-a">
           <div class="bubble-avatar">디</div>
           <div class="bubble-body">
@@ -99,7 +92,6 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- User reply 1 -->
         <transition name="pop">
           <div v-if="showUser1" class="bubble bubble-user float-b">
             <div class="bubble-body">
@@ -109,7 +101,6 @@ onMounted(() => {
           </div>
         </transition>
 
-        <!-- AI follow-up -->
         <transition name="pop">
           <div v-if="showAi2" class="bubble bubble-ai float-c">
             <div class="bubble-avatar">디</div>
@@ -119,7 +110,6 @@ onMounted(() => {
           </div>
         </transition>
 
-        <!-- User reply 2 -->
         <transition name="pop">
           <div v-if="showUser2" class="bubble bubble-user float-d">
             <div class="bubble-body">
@@ -129,7 +119,6 @@ onMounted(() => {
           </div>
         </transition>
 
-        <!-- AI insight card -->
         <transition name="pop">
           <div v-if="showAi3" class="insight-card float-e">
             <div class="insight-header">
@@ -139,14 +128,12 @@ onMounted(() => {
             <p class="insight-body">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
           </div>
         </transition>
-
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* ── Base ── */
 .hero {
   position: relative;
   overflow: hidden;
@@ -155,7 +142,6 @@ onMounted(() => {
   font-family: 'Pretendard', -apple-system, sans-serif;
 }
 
-/* ── Ambient glows ── */
 .bg-glow {
   position: absolute;
   border-radius: 50%;
@@ -178,7 +164,6 @@ onMounted(() => {
   background: rgba(61,219,153,0.06);
 }
 
-/* ── Layout ── */
 .hero-inner {
   position: relative;
   max-width: 1200px;
@@ -189,9 +174,9 @@ onMounted(() => {
   gap: 64px;
   align-items: center;
   min-height: 100vh;
+  min-height: 100svh; /* ← 핵심 수정: 모바일 주소창 높이 변화 무시 */
 }
 
-/* ── Text ── */
 .hero-text {
   max-width: 520px;
 }
@@ -294,7 +279,6 @@ onMounted(() => {
   background: rgba(255,255,255,0.1);
 }
 
-/* ── Bubbles area ── */
 .bubbles-wrap {
   position: relative;
   height: 520px;
@@ -304,7 +288,6 @@ onMounted(() => {
   gap: 14px;
 }
 
-/* Decorative blobs */
 .blob {
   position: absolute;
   border-radius: 50%;
@@ -322,7 +305,6 @@ onMounted(() => {
   background: rgba(61,219,153,0.07);
 }
 
-/* ── Bubble base ── */
 .bubble {
   display: flex;
   align-items: center;
@@ -392,7 +374,6 @@ onMounted(() => {
   color: rgba(255,255,255,0.9);
 }
 
-/* Caret */
 .caret {
   display: inline-block;
   width: 2px;
@@ -408,7 +389,6 @@ onMounted(() => {
   50% { opacity: 0; }
 }
 
-/* ── Insight card ── */
 .insight-card {
   align-self: flex-start;
   will-change: transform;
@@ -451,19 +431,12 @@ onMounted(() => {
   color: rgba(255,255,255,0.75);
 }
 
-/* ── Float animations ── */
-.float-a { animation: floatUp 6s ease-in-out infinite; }
-.float-b { animation: floatUp 6s ease-in-out infinite 1.5s; }
-.float-c { animation: floatUp 6s ease-in-out infinite 0.8s; }
-.float-d { animation: floatUp 6s ease-in-out infinite 2.2s; }
-.float-e { animation: floatUp 6s ease-in-out infinite 0.4s; }
 
 @keyframes floatUp {
   0%, 100% { transform: translateZ(0) translateY(0); }
   50%       { transform: translateZ(0) translateY(-8px); }
 }
 
-/* ── Pop-in transition ── */
 .pop-enter-active {
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -472,7 +445,6 @@ onMounted(() => {
   transform: scale(0.88) translateY(10px);
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero-inner {
     padding: 80px 32px 80px;
@@ -483,7 +455,7 @@ onMounted(() => {
 @media (max-width: 768px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    min-height: auto;
+    min-height: auto; /* 모바일은 auto로 */
     padding: 72px 24px 60px;
     gap: 48px;
     text-align: center;
@@ -505,10 +477,10 @@ onMounted(() => {
   .hero-badge { margin-left: auto; margin-right: auto; }
 
   .bubbles-wrap {
-    min-height: 420px;  
+    min-height: 420px;
     height: auto;
     gap: 12px;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     padding-top: 8px;
   }
 
