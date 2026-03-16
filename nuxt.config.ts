@@ -4,18 +4,14 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/supabase',
   ],
 
-  supabase: {
-    redirect: false,
-    redirectOptions: {
-      login: '/',
-      callback: '/',
-      exclude: ['/*'],
-    },
-    types: false,
-  },
+  runtimeConfig: {
+  public: {
+    supabaseUrl: '',
+    supabaseKey: '',
+  }
+},
 
   app: {
     head: {

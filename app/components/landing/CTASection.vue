@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useSupabase } from '~/utils/supabase'
 
 const email = ref('')
 const errorMessage = ref('')
 const isSubmitted = ref(false)
 const isLoading = ref(false)
 const isAgreed = ref(false)
-
-const supabase = useSupabaseClient()
 
 const isEmailValid = computed(() => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
@@ -33,6 +32,8 @@ const submitWaitlist = async () => {
 
   try {
     isLoading.value = true
+
+    const supabase = useSupabase()
 
     const { error } = await supabase
       .from('waitlist')
@@ -88,11 +89,11 @@ const submitWaitlist = async () => {
         >
           <div class="flex flex-col gap-3 sm:flex-row">
             <input
-            v-model="email"
-            type="email"
-            placeholder="이메일을 입력해주세요"
-            class="h-14 flex-1 rounded-2xl border border-white/10 bg-[#1A1F26] px-5 text-base text-white placeholder:text-white/35 outline-none transition focus:border-[#3DDB99]/50 focus:ring-2 focus:ring-[#3DDB99]/20"
-            @keyup.enter="submitWaitlist"
+              v-model="email"
+              type="email"
+              placeholder="이메일을 입력해주세요"
+              class="h-14 flex-1 rounded-2xl border border-white/10 bg-[#1A1F26] px-5 text-base text-white placeholder:text-white/35 outline-none transition focus:border-[#3DDB99]/50 focus:ring-2 focus:ring-[#3DDB99]/20"
+              @keyup.enter="submitWaitlist"
             />
 
             <button
@@ -147,7 +148,6 @@ const submitWaitlist = async () => {
           </p>
         </div>
       </div>
-
     </div>
   </section>
 </template>
