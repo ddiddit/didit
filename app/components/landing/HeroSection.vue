@@ -17,6 +17,11 @@ const showAi2 = ref(false)
 const showUser2 = ref(false)
 const showAi3 = ref(false)
 
+const settle = (e: AnimationEvent) => {
+  const el = e.currentTarget as HTMLElement
+  el.classList.add('settled')
+}
+
 onMounted(() => {
   let i = 0
   const t = setInterval(() => {
@@ -91,28 +96,44 @@ onMounted(() => {
           </div>
         </div>
 
-        <div v-if="showUser1" class="bubble bubble-user float-b bubble-pop">
+        <div
+          v-if="showUser1"
+          class="bubble bubble-user float-b bubble-pop"
+          @animationend="settle"
+        >
           <div class="bubble-body">
             <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
           </div>
           <div class="bubble-avatar user-avatar">딧</div>
         </div>
 
-        <div v-if="showAi2" class="bubble bubble-ai float-c bubble-pop">
+        <div
+          v-if="showAi2"
+          class="bubble bubble-ai float-c bubble-pop"
+          @animationend="settle"
+        >
           <div class="bubble-avatar">디</div>
           <div class="bubble-body">
             <p class="bubble-text">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
           </div>
         </div>
 
-        <div v-if="showUser2" class="bubble bubble-user float-d bubble-pop">
+        <div
+          v-if="showUser2"
+          class="bubble bubble-user float-d bubble-pop"
+          @animationend="settle"
+        >
           <div class="bubble-body">
             <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
           </div>
           <div class="bubble-avatar user-avatar">딧</div>
         </div>
 
-        <div v-if="showAi3" class="insight-card float-e bubble-pop">
+        <div
+          v-if="showAi3"
+          class="insight-card float-e bubble-pop"
+          @animationend="settle"
+        >
           <div class="insight-header">
             <span class="insight-dot" />
             AI 피드백
@@ -418,9 +439,15 @@ onMounted(() => {
   color: rgba(255,255,255,0.75);
 }
 
-/* 버블 등장 애니메이션 - DOM 마운트 시 한 번만 실행 */
 .bubble-pop {
   animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 애니메이션 종료 후 완전히 고정 - iOS Safari 재실행 방지 */
+.settled {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @keyframes popIn {
@@ -466,7 +493,7 @@ onMounted(() => {
   .hero-badge { margin-left: auto; margin-right: auto; }
 
   .bubbles-wrap {
-    min-height: 540px;
+    min-height: 420px;
     height: auto;
     gap: 12px;
     justify-content: flex-start;
