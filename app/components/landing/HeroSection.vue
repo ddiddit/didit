@@ -500,8 +500,11 @@ onMounted(() => {
   .hero-badge { margin-left: auto; margin-right: auto; }
 
   .bubbles-wrap {
+    min-height: 420px;  
     height: auto;
     gap: 12px;
+    justify-content: flex-start; 
+    padding-top: 8px;
   }
 
   .bubble-ai { max-width: 90%; }
