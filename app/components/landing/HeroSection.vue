@@ -10,7 +10,6 @@ const scrollTo = (id: string) => {
   })
 }
 
-// Typewriter for the AI question bubble
 const questionFullText = '오늘 어떤 일을 하셨나요?'
 const typedQuestion = ref('')
 const showUser1 = ref(false)
@@ -92,42 +91,34 @@ onMounted(() => {
           </div>
         </div>
 
-        <transition name="pop">
-          <div v-if="showUser1" class="bubble bubble-user float-b">
-            <div class="bubble-body">
-              <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
-            </div>
-            <div class="bubble-avatar user-avatar">딧</div>
+        <div v-if="showUser1" class="bubble bubble-user float-b bubble-pop">
+          <div class="bubble-body">
+            <p class="bubble-text">온보딩 플로우 단순화 작업했어요. 핵심 기능 중심으로 화면 구조를 다시 정리했습니다.</p>
           </div>
-        </transition>
+          <div class="bubble-avatar user-avatar">딧</div>
+        </div>
 
-        <transition name="pop">
-          <div v-if="showAi2" class="bubble bubble-ai float-c">
-            <div class="bubble-avatar">디</div>
-            <div class="bubble-body">
-              <p class="bubble-text">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
-            </div>
+        <div v-if="showAi2" class="bubble bubble-ai float-c bubble-pop">
+          <div class="bubble-avatar">디</div>
+          <div class="bubble-body">
+            <p class="bubble-text">좋네요! 어떤 기준이 가장 중요하다고 느꼈나요?</p>
           </div>
-        </transition>
+        </div>
 
-        <transition name="pop">
-          <div v-if="showUser2" class="bubble bubble-user float-d">
-            <div class="bubble-body">
-              <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
-            </div>
-            <div class="bubble-avatar user-avatar">딧</div>
+        <div v-if="showUser2" class="bubble bubble-user float-d bubble-pop">
+          <div class="bubble-body">
+            <p class="bubble-text">첫 화면에서 핵심 기능을 먼저 경험시키는 게 중요하다고 느꼈어요.</p>
           </div>
-        </transition>
+          <div class="bubble-avatar user-avatar">딧</div>
+        </div>
 
-        <transition name="pop">
-          <div v-if="showAi3" class="insight-card float-e">
-            <div class="insight-header">
-              <span class="insight-dot" />
-              AI 피드백
-            </div>
-            <p class="insight-body">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
+        <div v-if="showAi3" class="insight-card float-e bubble-pop">
+          <div class="insight-header">
+            <span class="insight-dot" />
+            AI 피드백
           </div>
-        </transition>
+          <p class="insight-body">사용자에게 경험을 먼저 제공하는 온보딩 설계 원칙, 잘 포착하셨어요 ✦</p>
+        </div>
       </div>
     </div>
   </section>
@@ -174,7 +165,7 @@ onMounted(() => {
   gap: 64px;
   align-items: center;
   min-height: 100vh;
-  min-height: 100svh; /* ← 핵심 수정: 모바일 주소창 높이 변화 무시 */
+  min-height: 100svh;
 }
 
 .hero-text {
@@ -308,8 +299,6 @@ onMounted(() => {
 .bubble {
   display: flex;
   align-items: center;
-  will-change: transform;
-  transform: translateZ(0);
   gap: 10px;
   max-width: 88%;
 }
@@ -391,8 +380,6 @@ onMounted(() => {
 
 .insight-card {
   align-self: flex-start;
-  will-change: transform;
-  transform: translateZ(0);
   background: linear-gradient(135deg, rgba(61,219,153,0.12), rgba(61,219,153,0.04));
   border: 1px solid rgba(61,219,153,0.25);
   border-radius: 16px;
@@ -431,18 +418,20 @@ onMounted(() => {
   color: rgba(255,255,255,0.75);
 }
 
-
-@keyframes floatUp {
-  0%, 100% { transform: translateZ(0) translateY(0); }
-  50%       { transform: translateZ(0) translateY(-8px); }
+/* 버블 등장 애니메이션 - DOM 마운트 시 한 번만 실행 */
+.bubble-pop {
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.pop-enter-active {
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.pop-enter-from {
-  opacity: 0;
-  transform: scale(0.88) translateY(10px);
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -455,7 +444,7 @@ onMounted(() => {
 @media (max-width: 768px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    min-height: auto; /* 모바일은 auto로 */
+    min-height: auto;
     padding: 72px 24px 60px;
     gap: 48px;
     text-align: center;
