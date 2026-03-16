@@ -4,7 +4,7 @@
       <div class="max-w-3xl">
         <p class="text-[#3DDB99] label-2 font-semibold">Product Preview</p>
         <h2 class="mt-3 text-slate-900 tracking-tight preview-title font-bold">
-          피그마로 먼저 보여주는 Didit의 핵심 흐름
+          피그마로 먼저 보여주는 didit의 핵심 흐름
         </h2>
         <p class="mt-5 text-slate-600 body-1-reading font-regular">
           홈에서 회고를 시작하고, AI와 대화하며, 결과 카드로 정리되는 흐름을 한눈에 볼 수 있어요.
@@ -18,7 +18,7 @@
             <p class="text-slate-500 label-2 font-regular">최근 회고와 시작 버튼</p>
           </div>
           <div class="phone-shot">
-            <img src="/showcase-home.png" alt="Didit 홈 화면" class="h-full w-full object-cover" />
+            <img src="/showcase-home.png" alt="didit 홈 화면" class="h-full w-full object-cover" />
           </div>
         </div>
 
@@ -28,7 +28,7 @@
             <p class="text-slate-500 label-2 font-regular">AI 질문에 답하며 회고 진행</p>
           </div>
           <div class="phone-shot">
-            <img src="/showcase-chat.png" alt="Didit 회고 챗봇 화면" class="h-full w-full object-cover" />
+            <img src="/showcase-chat.png" alt="didit 회고 챗봇 화면" class="h-full w-full object-cover" />
           </div>
         </div>
 
@@ -38,7 +38,7 @@
             <p class="text-slate-500 label-2 font-regular">AI 피드백과 인사이트 확인</p>
           </div>
           <div class="phone-shot">
-            <img src="/showcase-result.png" alt="Didit 회고 결과 화면" class="h-full w-full object-cover" />
+            <img src="/showcase-result.png" alt="didit 회고 결과 화면" class="h-full w-full object-cover" />
           </div>
         </div>
       </div>

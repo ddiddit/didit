@@ -72,7 +72,7 @@ const submitWaitlist = async () => {
       </div>
 
       <h2 class="mt-3 tracking-tight waitlist-title font-bold">
-        Didit을 가장 먼저 만나보세요
+        didit을 가장 먼저 만나보세요
       </h2>
 
       <p class="mx-auto mt-5 max-w-2xl text-white/70 body-1-reading font-regular">
@@ -138,7 +138,7 @@ const submitWaitlist = async () => {
             출시 알림 신청이 완료되었어요
           </h3>
           <p class="mt-3 text-white/70 body-1-reading font-regular">
-            Didit의 베타 오픈 소식을 가장 먼저 보내드릴게요.
+            didit의 베타 오픈 소식을 가장 먼저 보내드릴게요.
           </p>
         </div>
       </div>

@@ -3,13 +3,13 @@
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-4">
       <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
-          <p class="text-[#3DDB99] label-2 font-semibold">Why Didit</p>
+          <p class="text-[#3DDB99] label-2 font-semibold">Why didit</p>
           <h2 class="mt-3 text-slate-900 tracking-tight why-title font-bold">
             회고가 중요한 건 알지만, 매일 쓰기는 어렵습니다
           </h2>
           <p class="mt-5 text-slate-600 body-1-reading font-regular">
             하루를 돌아보는 건 중요하지만, 막상 퇴근 직전이나 바쁜 일정 사이에 회고를 문서로 정리하는 건 부담이 큽니다.
-            Didit은 그 부담을 질문과 대화로 바꿉니다.
+            didit은 그 부담을 질문과 대화로 바꿉니다.
           </p>
         </div>
 

@@ -4,7 +4,7 @@
       <div class="max-w-3xl">
         <p class="text-[#3DDB99] label-2 font-semibold">Features</p>
         <h2 class="mt-3 text-slate-900 how-title font-bold tracking-tight">
-          Didit의 핵심 기능
+          didit의 핵심 기능
         </h2>
         <p class="mt-5 text-slate-600 body-1-reading font-regular">
           업무 회고를 계속하게 만드는 데 필요한 기능만 먼저 담았습니다.

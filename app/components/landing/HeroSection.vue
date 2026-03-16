@@ -8,8 +8,8 @@ const scrollTo = (id: string) => {
   window.scrollTo({ top, behavior: 'smooth' })
 }
 
-const titleFullText = 'Growth through\nyour Didit.'
-const DIDIT_START = titleFullText.indexOf('Didit.')
+const titleFullText = 'Growth through\nyour didit.'
+const DIDIT_START = titleFullText.indexOf('didit.')
 const typedTitle = ref('')
 const titleDone = ref(false)
 
@@ -69,7 +69,7 @@ onMounted(() => {
         </h1>
 
         <p class="hero-desc body-1-reading font-regular">
-          Didit은 기획자, 개발자, 디자이너가 AI와 대화하며
+          didit은 기획자, 개발자, 디자이너가 AI와 대화하며
           오늘 한 일과 막힌 지점, 배운 점을 돌아보고
           피드백과 인사이트까지 쌓을 수 있는 업무 회고 앱입니다.
         </p>
@@ -104,7 +104,7 @@ onMounted(() => {
         <div class="bubble bubble-ai float-a">
           <div class="bubble-avatar font-extrabold">디</div>
           <div class="bubble-body">
-            <span class="bubble-sender caption-2 font-semibold">Didit AI</span>
+            <span class="bubble-sender caption-2 font-semibold">didit AI</span>
             <p class="bubble-text label-1-normal font-regular">
               {{ typedQuestion }}<span v-if="typedQuestion.length < questionFullText.length && titleDone" class="caret" />
             </p>
