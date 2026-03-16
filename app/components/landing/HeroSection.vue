@@ -4,7 +4,8 @@ import { onMounted, ref } from 'vue'
 const scrollTo = (id: string) => {
   const el = document.getElementById(id)
   if (!el) return
-  el.scrollIntoView({ behavior: 'smooth' })
+  const top = el.getBoundingClientRect().top + window.scrollY
+  window.scrollTo({ top, behavior: 'smooth' })
 }
 
 const titleFullText = 'Growth through\nyour Didit.'
