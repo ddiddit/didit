@@ -147,6 +147,7 @@ const submitWaitlist = async () => {
           </p>
         </div>
       </div>
+      
     </div>
   </section>
 </template>
