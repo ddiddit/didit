@@ -36,6 +36,9 @@ useHead({
   ],
 })
 
+useRouter().afterEach(() => {
+})
+
 if (import.meta.client) {
   history.scrollRestoration = 'manual'
 }

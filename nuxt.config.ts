@@ -19,6 +19,12 @@ export default defineNuxtConfig({
     }
   },
 
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
+
   site: {
     url: 'https://didit.ai.kr',
   },
