@@ -466,7 +466,7 @@ onMounted(() => {
   .hero-badge { margin-left: auto; margin-right: auto; }
 
   .bubbles-wrap {
-    min-height: 420px;
+    min-height: 540px;
     height: auto;
     gap: 12px;
     justify-content: flex-start;
