@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-white">
-    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-4">
+  <section id="features" class="bg-[#f8faf9]">
+    <div class="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-[#3DDB99]">Features</p>
         <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">

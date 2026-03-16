@@ -10,12 +10,13 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
     redirectOptions: {
-      login: '/login',
-      callback: '/confirm',
+      login: '/',
+      callback: '/',
       exclude: ['/*'],
     },
+    types: false,
   },
-  
+
   app: {
     head: {
       htmlAttrs: { lang: 'ko' },

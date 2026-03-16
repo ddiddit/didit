@@ -68,7 +68,7 @@ const submitWaitlist = async () => {
 </script>
 
 <template>
-  <section class="bg-[#0b0f14] text-white">
+  <section id="waitlist" class="bg-[#0b0f14] text-white">
     <div class="mx-auto max-w-5xl px-6 py-24 text-center lg:px-8">
       <p class="text-sm font-semibold text-[#3DDB99]">Beta</p>
 
@@ -147,7 +147,7 @@ const submitWaitlist = async () => {
           </p>
         </div>
       </div>
-      
+
     </div>
   </section>
 </template>

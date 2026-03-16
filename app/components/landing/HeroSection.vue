@@ -44,6 +44,10 @@ onMounted(() => {
     }
   }, 34)
 })
+
+const scrollTo = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -74,13 +78,15 @@ onMounted(() => {
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
           <button
-            class="rounded-2xl bg-[#3DDB99] px-6 py-3 text-base font-semibold text-[#0b0f14] transition hover:scale-[1.02]"
+            class="rounded-2xl bg-[#3DDB99] px-6 py-3 text-base font-semibold text-[#0b0f14] hover:bg-[#3DDB99]/90"
+            @click="scrollTo('waitlist')"
           >
             베타 신청하기
           </button>
 
           <button
             class="rounded-2xl border border-white/10 px-6 py-3 text-base font-semibold text-white/90 transition hover:bg-white/5"
+            @click="scrollTo('features')"
           >
             기능 미리보기
           </button>

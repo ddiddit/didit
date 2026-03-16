@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#F7FBF9] border-y border-slate-200/70">
+  <section class="bg-white border-y border-slate-200/70">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-4">
       <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
