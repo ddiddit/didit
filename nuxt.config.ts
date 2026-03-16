@@ -4,14 +4,19 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/sitemap',
   ],
 
   runtimeConfig: {
-  public: {
-    supabaseUrl: '',
-    supabaseKey: '',
-  }
-},
+    public: {
+      supabaseUrl: '',
+      supabaseKey: '',
+    }
+  },
+
+  site: {
+    url: 'https://didit.ai.kr',
+  },
 
   app: {
     head: {

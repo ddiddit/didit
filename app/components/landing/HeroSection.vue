@@ -159,16 +159,14 @@ const scrollTo = (id: string) => {
               </transition>
             </div>
 
-            <div class="mt-4 flex items-center rounded-full bg-[#F3F4F6] px-4 py-3">
-
-            <span class="text-[14px] text-[#9CA3AF]">
-            회고를 입력하세요
-            </span>
-
-            <button
-            class="ml-auto flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white transition hover:scale-[1.05]"
-            aria-label="말하기"
-            >
+            <div class="mt-4 flex items-center rounded-full bg-[#F1F1F1] px-4 py-3 ">
+              <span class="text-[14px] text-[#9CA3AF]">
+              회고를 입력하세요
+              </span>
+              <button
+                class="ml-auto flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white transition hover:scale-[1.05]"
+                aria-label="말하기"
+              >
 
             <!-- waveform icon -->
 
