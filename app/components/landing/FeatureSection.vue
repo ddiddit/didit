@@ -1,5 +1,5 @@
 <template>
-  <section id="features" class="bg-[#f8faf9]">
+  <section class="bg-[#f8faf9]">
     <div class="mx-auto max-w-7xl px-6 py-24 lg:px-4">
       <div class="max-w-3xl">
         <p class="text-sm font-semibold text-[#3DDB99]">Features</p>

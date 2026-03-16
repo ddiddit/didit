@@ -76,7 +76,7 @@ onUnmounted(() => clearTimers())
 </script>
 
 <template>
-  <section class="how-section">
+  <section id="features" class="how-section">
     <div class="how-inner">
       <!-- Header -->
       <div class="how-header">
