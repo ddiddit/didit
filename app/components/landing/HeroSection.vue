@@ -56,7 +56,6 @@ const scrollTo = (id: string) => {
       <div class="absolute left-[-10%] top-[-10%] h-[420px] w-[420px] rounded-full bg-[#3DDB99]/20 blur-3xl" />
       <div class="absolute bottom-[-10%] right-[-10%] h-[360px] w-[360px] rounded-full bg-[#3DDB99]/10 blur-3xl" />
     </div>
-
     <div class="relative mx-auto grid min-h-screen max-w-7xl items-center gap-16 px-6 py-20 lg:grid-cols-2 lg:px-4">
       <div class="max-w-2xl">
         <div
