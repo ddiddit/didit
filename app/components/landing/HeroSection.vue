@@ -396,6 +396,7 @@ onMounted(() => {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 6px;
+  line-height: 1;
 }
 
 .insight-dot {
@@ -404,6 +405,8 @@ onMounted(() => {
   border-radius: 50%;
   background: #3DDB99;
   animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;   
+  margin-bottom: 1px; 
 }
 
 @keyframes pulse {
