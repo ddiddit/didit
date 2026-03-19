@@ -200,8 +200,7 @@ onUnmounted(() => clearTimers())
 
 .how-body {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 72px;
+  grid-template-columns: 1fr 600px;
   align-items: center;
 }
 
@@ -419,7 +418,7 @@ onUnmounted(() => clearTimers())
   }
 
   .how-header {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 }
 </style>
