@@ -12,31 +12,31 @@ const steps = [
     number: '01',
     label: '홈에서 바로 시작',
     desc: '앱을 열면 AI가 바로 맞이해요. 최근 피드백과 지난 회고도 한눈에 볼 수 있어요.',
-    image: '/screens/showcase-home.png',
+    image: '/screens/1.jpg',
   },
   {
     number: '02',
     label: 'AI가 질문을 던져요',
     desc: '오늘 무슨 일을 했는지 AI가 먼저 물어봐요. 생각이 없어도 답하다 보면 정리돼요.',
-    image: '/screens/showcase-chat.png',
+    image: '/screens/2.jpg',
   },
   {
     number: '03',
     label: '말하거나 타이핑으로',
     desc: '키보드로 입력하거나 음성으로 말해도 돼요. 편한 방식으로 3분만 투자하세요.',
-    image: '/screens/showcase-keyboard.png',
+    image: '/screens/3.jpg',
   },
   {
     number: '04',
     label: 'AI가 정리 중이에요',
     desc: '대화가 끝나면 AI가 자동으로 회고 내용을 분석하고 핵심 인사이트를 찾아줘요.',
-    image: '/screens/showcase-analyzing.png',
+    image: '/screens/4.jpg',
   },
   {
     number: '05',
     label: '회고 & 피드백 완성',
     desc: '막힌 지점, 해결 과정, 배운 점이 정리되고 AI 피드백까지 자동으로 저장돼요.',
-    image: '/screens/showcase-result.png',
+    image: '/screens/5.jpg',
   },
 ]
 
@@ -200,8 +200,9 @@ onUnmounted(() => clearTimers())
 
 .how-body {
   display: grid;
-  grid-template-columns: 1fr 600px;
+  grid-template-columns: 1fr 560px;
   align-items: center;
+  gap: 40px;
 }
 
 .phone-col {
@@ -212,15 +213,14 @@ onUnmounted(() => clearTimers())
 }
 
 .phone-shell {
-  width: 260px;
+  width: 320px;
   padding: 9px;
-  border-radius: 46px;
+  border-radius: 50px;
   background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.03));
   box-shadow:
       0 40px 80px rgba(0, 0, 0, 0.55),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
   position: relative;
-  animation: floatY 6s ease-in-out infinite;
   flex-shrink: 0;
 }
 
@@ -229,21 +229,23 @@ onUnmounted(() => clearTimers())
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 82px;
-  height: 20px;
+  width: 90px;
+  height: 22px;
   background: #0b0f14;
   border-radius: 999px;
   z-index: 10;
 }
 
 .phone-screen {
-  border-radius: 38px;
+  border-radius: 42px;
   overflow: hidden;
   background: #f5f5f7;
-  aspect-ratio: 9 / 19.5;
+  /* ✅ 실제 이미지 비율 975:2110에 맞춤 */
+  aspect-ratio: 975 / 2110;
   position: relative;
 }
 
+/* ✅ 선명도 개선 */
 .screen-img {
   width: 100%;
   height: 100%;
@@ -252,6 +254,9 @@ onUnmounted(() => clearTimers())
   display: block;
   position: absolute;
   inset: 0;
+  background: #f5f5f7;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .screen-fade-enter-active,
