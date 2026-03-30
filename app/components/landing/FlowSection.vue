@@ -414,6 +414,20 @@ onUnmounted(() => clearTimers())
     align-items: center;
   }
 
+  .phone-shell {
+    width: 220px;
+    border-radius: 40px;
+  }
+
+  .phone-notch {
+    width: 70px;
+    height: 18px;
+  }
+
+  .phone-screen {
+    border-radius: 32px;
+  }
+
   .mobile-caption {
     display: flex;
   }
