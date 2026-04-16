@@ -75,7 +75,14 @@ onMounted(() => {
         </p>
 
         <div class="hero-btns">
-          <button type="button" class="btn-primary body-2-normal font-bold" @click="scrollTo('waitlist')">베타 신청하기</button>
+          <a
+            href="https://apps.apple.com/kr/app/%EB%94%94%EB%94%A7-didit-ai-%EC%97%85%EB%AC%B4-%ED%9A%8C%EA%B3%A0/id6761548843"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary body-2-normal font-bold"
+          >
+            App Store 에서 받기
+          </a>
           <button type="button" class="btn-ghost body-2-normal font-semibold" @click="scrollTo('features')">기능 미리보기</button>
         </div>
 
