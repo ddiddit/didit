@@ -21,7 +21,7 @@ useSeoMeta({
         <p class="legal-desc body-2-normal font-regular">
           본 동의는 선택 사항이며, 동의하지 않아도 서비스 이용에는 제한이 없습니다.
         </p>
-        <p class="legal-date caption-1 font-regular">최종 업데이트: 2025년 1월</p>
+        <p class="legal-date caption-1 font-regular">최종 업데이트: 2026년 4월</p>
       </div>
 
       <div class="legal-body">

@@ -36,7 +36,7 @@
           </a>
 
           <!-- ② QR 카드 -->
-          <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
+          <div class="store-card" @mouseenter="hovered = tarue" @mouseleave="hovered = false">
             <div class="card-glow" :class="{ visible: hovered }" />
             <div class="qr-inner">
               <img

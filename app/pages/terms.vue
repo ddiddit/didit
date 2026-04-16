@@ -17,7 +17,7 @@ useSeoMeta({
           홈으로
         </NuxtLink>
         <h1 class="legal-title font-extrabold">디딧(didit) 서비스 이용약관</h1>
-        <p class="legal-date caption-1 font-regular">최종 업데이트: 2025년 1월</p>
+        <p class="legal-date caption-1 font-regular">최종 업데이트: 2026년 4월</p>
       </div>
 
       <div class="legal-body">
