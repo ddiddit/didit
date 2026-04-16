@@ -81,7 +81,7 @@ onMounted(() => {
             rel="noopener noreferrer"
             class="btn-primary body-2-normal font-bold"
           >
-            App Store 에서 받기
+            지금 시작하기
           </a>
           <button type="button" class="btn-ghost body-2-normal font-semibold" @click="scrollTo('features')">기능 미리보기</button>
         </div>
