@@ -41,7 +41,9 @@ export default defineNuxtConfig({
         { name: 'naver-site-verification', content: '8cf70a6f6cd230db8ca3eea7084dffef02f91c6f' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
       ],
     },
   },

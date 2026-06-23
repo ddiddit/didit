@@ -10,7 +10,7 @@
 
         <!-- 브랜드 -->
         <div class="footer-brand">
-          <p class="brand-name font-extrabold">didit</p>
+          <img src="/favicon.svg" alt="didit" class="brand-logo" width="44" height="44" />
           <p class="brand-desc body-2-normal font-regular">
             AI와 함께하는 업무 회고 앱
           </p>
@@ -94,11 +94,12 @@
 }
 
 /* 브랜드 */
-.brand-name {
-  font-size: 24px;
-  letter-spacing: -0.03em;
-  color: #0f172a;
-  margin-bottom: 8px;
+.brand-logo {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  margin-bottom: 12px;
 }
 
 .brand-desc {
