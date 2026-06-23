@@ -23,6 +23,7 @@
             target="_blank"
             rel="noopener noreferrer"
             class="store-btn"
+            @click="track('landing_cta_click', { location: 'download_section', target: 'appstore' })"
           >
             <div class="store-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
@@ -36,7 +37,7 @@
           </a>
 
           <!-- ② QR 카드 -->
-          <div class="store-card" @mouseenter="hovered = tarue" @mouseleave="hovered = false">
+          <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
             <div class="card-glow" :class="{ visible: hovered }" />
             <div class="qr-inner">
               <img
@@ -56,6 +57,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+const { track } = useAmplitude()
 const hovered = ref(false)
 </script>
 

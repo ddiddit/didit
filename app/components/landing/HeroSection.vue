@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
+const { track } = useAmplitude()
+
 const scrollTo = (id: string) => {
   const el = document.getElementById(id)
   if (!el) return
@@ -85,10 +87,15 @@ onMounted(() => {
             target="_blank"
             rel="noopener noreferrer"
             class="btn-primary body-2-normal font-bold"
+            @click="track('landing_cta_click', { location: 'hero', target: 'appstore' })"
           >
             지금 시작하기
           </a>
-          <button type="button" class="btn-ghost body-2-normal font-semibold" @click="scrollTo('features')">기능 미리보기</button>
+          <button
+            type="button"
+            class="btn-ghost body-2-normal font-semibold"
+            @click="track('landing_cta_click', { location: 'hero', target: 'preview' }); scrollTo('features')"
+          >기능 미리보기</button>
         </div>
 
         <div class="hero-stats">
