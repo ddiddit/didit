@@ -16,8 +16,8 @@ export default defineNuxtConfig({
     public: {
       supabaseUrl: '',
       supabaseKey: '',
-      // Amplitude — 앱(didit-frontend)과 동일 프로젝트로 전송 (클라이언트 공개키)
-      amplitudeApiKey: process.env.NUXT_PUBLIC_AMPLITUDE_API_KEY ?? '2205990dd13997a846fc5a98b6684a72',
+      // Amplitude — 랜딩 전용 프로젝트(랜딩페이지, #832177)로 전송 (클라이언트 공개키)
+      amplitudeApiKey: process.env.NUXT_PUBLIC_AMPLITUDE_API_KEY ?? 'e8feaac030c8f40a36085e95a8553505',
     }
   },
 
