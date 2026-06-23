@@ -10,8 +10,9 @@ const scrollTo = (id: string) => {
 
 const titleFullText = 'Growth through\nyour didit.'
 const DIDIT_START = titleFullText.indexOf('didit.')
-const typedTitle = ref('')
-const titleDone = ref(false)
+// SSR/노스크립트에서도 제목이 보이도록 전체 텍스트로 초기화 (마운트 후 다시 타이핑 애니메이션)
+const typedTitle = ref(titleFullText)
+const titleDone = ref(true)
 
 const titleBefore = (s: string) => s.slice(0, Math.min(s.length, DIDIT_START))
 const titleHighlight = (s: string) => s.length > DIDIT_START ? s.slice(DIDIT_START) : ''
@@ -29,6 +30,10 @@ const settle = (e: AnimationEvent) => {
 }
 
 onMounted(() => {
+  // 마운트 후 타이핑 애니메이션을 위해 초기화
+  typedTitle.value = ''
+  titleDone.value = false
+
   let i = 0
   const titleTimer = setInterval(() => {
     typedTitle.value = titleFullText.slice(0, ++i)
@@ -69,9 +74,9 @@ onMounted(() => {
         </h1>
 
         <p class="hero-desc body-1-reading font-regular">
-          didit은 기획자, 개발자, 디자이너가 AI와 대화하며
+          디딧(didit)은 기획자, 개발자, 디자이너가 AI와 대화하며
           오늘 한 일과 막힌 지점, 배운 점을 돌아보고
-          피드백과 인사이트까지 쌓을 수 있는 업무 회고 앱입니다.
+          피드백과 인사이트까지 쌓을 수 있는 AI 업무 회고 앱입니다.
         </p>
 
         <div class="hero-btns">

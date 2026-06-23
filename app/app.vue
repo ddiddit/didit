@@ -1,22 +1,25 @@
 <script setup lang="ts">
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} · didit` : 'didit · AI 업무 회고 서비스'
+    return titleChunk ? `${titleChunk} · 디딧(didit)` : '디딧(didit) · AI 업무 회고 앱'
   },
-  link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-  ],
   script: [
     {
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
-        name: 'didit',
+        name: '디딧(didit)',
+        alternateName: ['디딧', 'didit'],
         url: 'https://didit.ai.kr',
-        description: '질문형 대화와 AI 피드백으로 더 쉬운 업무 회고',
+        description: '디딧(didit)은 질문형 대화와 AI 피드백으로 더 쉽게 쓰는 AI 업무 회고 앱입니다.',
         applicationCategory: 'ProductivityApplication',
+        operatingSystem: 'iOS',
         inLanguage: 'ko',
+        sameAs: [
+          'https://apps.apple.com/kr/app/id6761548843',
+          'https://instagram.com/didit.app',
+        ],
       }),
     },
   ],
