@@ -255,8 +255,7 @@ onUnmounted(() => clearTimers())
   position: absolute;
   inset: 0;
   background: #f5f5f7;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  image-rendering: auto;
 }
 
 .screen-fade-enter-active,
