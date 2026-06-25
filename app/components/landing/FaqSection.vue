@@ -29,8 +29,11 @@ const faqs = [
 ]
 
 const open = ref(0)
+const { track } = useAmplitude()
 function toggle(i: number) {
-  open.value = open.value === i ? -1 : i
+  const willOpen = open.value !== i
+  open.value = willOpen ? i : -1
+  if (willOpen) track('landing_faq_toggle', { question: faqs[i].q })
 }
 </script>
 
