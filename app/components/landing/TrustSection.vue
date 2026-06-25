@@ -153,6 +153,8 @@ onMounted(() => {
 
 .trust-desc {
   color: #64748b;
+  word-break: keep-all;
+  text-wrap: balance;
 }
 
 @media (max-width: 960px) {
