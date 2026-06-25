@@ -69,7 +69,7 @@ onMounted(() => {
 
 <style scoped>
 .trust-section {
-  background: #ffffff;
+  background: #f8faf9;
   border-top: 1px solid rgba(226, 232, 240, 0.7);
   border-bottom: 1px solid rgba(226, 232, 240, 0.7);
   padding: 100px 24px;
