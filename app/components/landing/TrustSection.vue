@@ -2,8 +2,8 @@
 import { ref, onMounted } from 'vue'
 
 const stats = [
-  { value: 104, suffix: '', label: '누적 작성된 회고', desc: '사용자들이 didit으로 쌓아온 회고예요.' },
   { value: 81, suffix: '', label: '함께하는 사용자', desc: 'didit과 함께 회고를 쌓고 있는 분들이에요.' },
+  { value: 104, suffix: '', label: '누적 작성된 회고', desc: '사용자들이 didit으로 쌓아온 회고예요.' },
   { value: 400, suffix: '+', label: '누적 AI 대화', desc: '지금까지 AI와 주고받은 답변이에요.' },
   { value: 75, suffix: '%', label: '회고 완료율', desc: '시작한 회고를 끝까지 마친 비율이에요.' },
 ]
