@@ -48,6 +48,18 @@
             </div>
           </div>
 
+          <!-- ③ 웹 보조 링크 -->
+          <a
+            href="https://app.didit.ai.kr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="web-link label-1-normal font-semibold"
+            @click="track('landing_cta_click', { location: 'download_section', target: 'webapp' })"
+          >
+            설치 없이 웹에서 바로 써보기
+            <span class="web-link-arrow" aria-hidden="true">→</span>
+          </a>
+
         </div>
       </div>
 
@@ -198,6 +210,22 @@ const hovered = ref(false)
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
+
+/* ── 웹 보조 링크 ── */
+.web-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 6px 0;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.web-link:hover { color: #3ddb99; }
+.web-link-arrow { transition: transform 0.15s; }
+.web-link:hover .web-link-arrow { transform: translateX(3px); }
 
 /* ── 힌트 ── */
 .qr-hint {

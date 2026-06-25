@@ -98,6 +98,17 @@ onMounted(() => {
           >기능 미리보기</button>
         </div>
 
+        <a
+          href="https://app.didit.ai.kr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hero-weblink label-1-normal font-semibold"
+          @click="track('landing_cta_click', { location: 'hero', target: 'webapp' })"
+        >
+          설치 없이 웹에서 바로 써보기
+          <span class="weblink-arrow" aria-hidden="true">→</span>
+        </a>
+
         <div class="hero-stats">
           <div class="stat">
             <span class="stat-val font-extrabold">3분</span>
@@ -253,8 +264,23 @@ onMounted(() => {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 52px;
+  margin-bottom: 18px;
 }
+
+.hero-weblink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  margin-bottom: 52px;
+  transition: color 0.15s;
+}
+.hero-weblink:hover { color: #3DDB99; }
+.hero-weblink .weblink-arrow {
+  transition: transform 0.15s;
+}
+.hero-weblink:hover .weblink-arrow { transform: translateX(3px); }
 
 .btn-primary {
   background: #3DDB99;
