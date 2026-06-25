@@ -12,14 +12,14 @@ useSeoMeta({
 
 <template>
   <div>
-    <LandingHeroSection />
-    <LandingProblemSection />
-    <LandingFlowSection />
-    <LandingFeatureSection />
-    <LandingPersonaSection />
-    <LandingTrustSection />
-    <LandingCTASection />
-    <LandingFaqSection />
-    <LandingFooterSection />
+    <LandingHeroSection v-section-view="'hero'" />
+    <LandingProblemSection v-section-view="'problem'" />
+    <LandingFlowSection v-section-view="'flow'" />
+    <LandingFeatureSection v-section-view="'feature'" />
+    <LandingPersonaSection v-section-view="'persona'" />
+    <LandingTrustSection v-section-view="'trust'" />
+    <LandingCTASection v-section-view="'cta'" />
+    <LandingFaqSection v-section-view="'faq'" />
+    <LandingFooterSection v-section-view="'footer'" />
   </div>
 </template>
