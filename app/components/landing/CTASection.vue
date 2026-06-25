@@ -9,7 +9,7 @@
           지금 바로 <em>다운로드</em>하세요
         </h2>
         <p class="download-sub body-1-reading font-regular">
-          AI와 함께하는 업무 회고, didit을 지금 만나보세요. 지금은 무료예요.
+          AI와 함께하는 업무 회고, 디딧을 지금 만나보세요. 지금은 무료예요.
         </p>
       </div>
 
