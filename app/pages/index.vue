@@ -18,6 +18,7 @@ useSeoMeta({
     <LandingFeatureSection />
     <LandingTrustSection />
     <LandingCTASection />
-    <LandingFooterSection /> 
+    <LandingFaqSection />
+    <LandingFooterSection />
   </div>
 </template>

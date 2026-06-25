@@ -98,6 +98,10 @@ onMounted(() => {
           >기능 미리보기</button>
         </div>
 
+        <p class="hero-free caption-1 font-regular">
+          지금은 <strong>무료</strong> · 하루 3회까지 회고할 수 있어요
+        </p>
+
         <a
           href="https://app.didit.ai.kr"
           target="_blank"
@@ -264,7 +268,16 @@ onMounted(() => {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+}
+
+.hero-free {
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 12px;
+}
+.hero-free strong {
+  color: #3DDB99;
+  font-weight: 700;
 }
 
 .hero-weblink {
