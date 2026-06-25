@@ -56,7 +56,9 @@ function toggle(i: number) {
             </span>
           </button>
           <div class="faq-a-wrap">
-            <p class="faq-a label-1-reading font-regular">{{ item.a }}</p>
+            <div class="faq-a-inner">
+              <p class="faq-a label-1-reading font-regular">{{ item.a }}</p>
+            </div>
           </div>
         </li>
       </ul>
@@ -157,26 +159,27 @@ function toggle(i: number) {
 .faq-a-wrap {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s ease;
+  transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .faq-item.open .faq-a-wrap {
   grid-template-rows: 1fr;
 }
 
-.faq-a {
+.faq-a-inner {
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.55);
-  padding: 0 22px;
-  line-height: 1.7;
+  min-height: 0;
 }
-.faq-item.open .faq-a {
-  padding: 0 22px 22px;
+
+.faq-a {
+  color: rgba(255, 255, 255, 0.55);
+  padding: 2px 22px 22px;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
   .faq-section { padding: 72px 24px; }
   .faq-header { margin-bottom: 32px; }
   .faq-q { padding: 18px 18px; }
-  .faq-a, .faq-item.open .faq-a { padding-left: 18px; padding-right: 18px; }
+  .faq-a { padding-left: 18px; padding-right: 18px; }
 }
 </style>

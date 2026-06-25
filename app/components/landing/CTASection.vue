@@ -15,7 +15,9 @@
 
       <!-- 스토어 묶음 -->
       <div class="cards-wrap">
-        <div class="store-wrap">
+
+        <!-- 스토어 버튼 컬럼 -->
+        <div class="store-col">
 
           <!-- ① App Store 버튼 — 누르면 바로 이동 -->
           <a
@@ -53,32 +55,39 @@
             <span class="soon-pill caption-2 font-bold">곧 출시</span>
           </div>
 
-          <!-- ③ QR 카드 -->
-          <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
-            <div class="card-glow" :class="{ visible: hovered }" />
-            <div class="qr-inner">
-              <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://apps.apple.com/kr/app/%EB%94%94%EB%94%A7-didit-ai-%EC%97%85%EB%AC%B4-%ED%9A%8C%EA%B3%A0/id6761548843&margin=8&color=0b0f14&bgcolor=ffffff"
-                alt="App Store QR 코드"
-                class="qr-img"
-              />
-            </div>
-          </div>
-
-          <!-- ③ 웹 보조 링크 -->
-          <a
-            href="https://app.didit.ai.kr"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="web-link label-1-normal font-semibold"
-            @click="track('landing_cta_click', { location: 'download_section', target: 'webapp' })"
-          >
-            설치 없이 웹에서 바로 써보기
-            <span class="web-link-arrow" aria-hidden="true">→</span>
-          </a>
-
         </div>
+
+        <!-- ③ QR 카드 (App Store 전용) -->
+        <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
+          <div class="card-glow" :class="{ visible: hovered }" />
+          <div class="qr-inner">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://apps.apple.com/kr/app/%EB%94%94%EB%94%A7-didit-ai-%EC%97%85%EB%AC%B4-%ED%9A%8C%EA%B3%A0/id6761548843&margin=8&color=0b0f14&bgcolor=ffffff"
+              alt="App Store QR 코드"
+              class="qr-img"
+            />
+          </div>
+          <p class="qr-caption caption-1 font-medium">
+            <svg class="qr-apple" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            iPhone으로 스캔하면 App Store로 이동해요
+          </p>
+        </div>
+
       </div>
+
+      <!-- 웹 보조 링크 -->
+      <a
+        href="https://app.didit.ai.kr"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="web-link label-1-normal font-semibold"
+        @click="track('landing_cta_click', { location: 'download_section', target: 'webapp' })"
+      >
+        설치 없이 웹에서 바로 써보기
+        <span class="web-link-arrow" aria-hidden="true">→</span>
+      </a>
 
     </div>
   </section>
@@ -140,14 +149,16 @@ const hovered = ref(false)
 .cards-wrap {
   display: flex;
   justify-content: center;
+  align-items: stretch;
+  gap: 16px;
 }
 
-.store-wrap {
+.store-col {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  justify-content: center;
   gap: 10px;
-  width: 260px;
+  width: 280px;
 }
 
 /* ── App Store 버튼 ── */
@@ -194,8 +205,25 @@ const hovered = ref(false)
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 16px;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   transition: border-color 0.3s, background 0.3s;
+}
+
+.qr-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+}
+.qr-apple {
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
 }
 
 .card-glow {
@@ -251,11 +279,11 @@ const hovered = ref(false)
 
 /* ── 웹 보조 링크 ── */
 .web-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 28px;
   padding: 6px 0;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
@@ -301,6 +329,12 @@ const hovered = ref(false)
 @media (max-width: 768px) {
   .download-section { padding: 72px 24px; }
   .download-header  { margin-bottom: 40px; }
-  .store-wrap { width: 100%; max-width: 340px; }
+  .cards-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .store-col { width: 100%; max-width: 320px; }
+  .store-card { width: 100%; max-width: 320px; }
 }
 </style>
