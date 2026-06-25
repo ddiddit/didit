@@ -67,7 +67,7 @@ onMounted(() => {
 
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-badge label-2 font-semibold">AI 업무 회고 서비스</div>
+        <div class="hero-badge label-2 font-semibold">기획자·개발자·디자이너를 위한 AI 업무 회고</div>
 
         <h1 class="hero-title font-black">
           <template v-for="(line, idx) in titleBefore(typedTitle).split('\n')" :key="idx">
