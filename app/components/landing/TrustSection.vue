@@ -135,6 +135,9 @@ onMounted(() => {
 }
 
 .trust-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: clamp(40px, 6vw, 60px);
   line-height: 1;
   letter-spacing: -0.03em;
