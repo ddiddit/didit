@@ -54,24 +54,26 @@ function startCycle() {
     if (progress.value >= 100) progress.value = 100
   }, 50)
 
-  timer = setTimeout(function tick() {
-    setTimeout(() => {
-      currentStep.value = (currentStep.value + 1) % steps.length
-      startCycle()
-    }, 400)
+  timer = setTimeout(() => {
+    currentStep.value = (currentStep.value + 1) % steps.length
+    startCycle()
   }, STEP_DURATION)
 }
 
 function goTo(idx: number) {
   if (idx === currentStep.value) return
-  clearTimers()
-  setTimeout(() => {
-    currentStep.value = idx
-    startCycle()
-  }, 400)
+  currentStep.value = idx
+  startCycle()
 }
 
-onMounted(() => startCycle())
+onMounted(() => {
+  // 전환 시 흰 화면이 보이지 않도록 모든 스크린샷을 미리 로드
+  for (const s of steps) {
+    const img = new Image()
+    img.src = s.image
+  }
+  startCycle()
+})
 onUnmounted(() => clearTimers())
 </script>
 
@@ -91,7 +93,7 @@ onUnmounted(() => clearTimers())
           <div class="phone-shell">
             <div class="phone-notch" />
             <div class="phone-screen">
-              <transition name="screen-fade" mode="out-in">
+              <transition name="screen-fade">
                 <img
                     :key="currentStep"
                     :src="steps[currentStep].image"
@@ -258,12 +260,16 @@ onUnmounted(() => clearTimers())
   image-rendering: auto;
 }
 
+/* 겹쳐서 부드럽게 교차(크로스페이드) — 흰 배경이 보이는 빈 순간이 없도록 */
 .screen-fade-enter-active,
 .screen-fade-leave-active {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.5s ease;
 }
-.screen-fade-enter-from { opacity: 0; transform: translateY(12px); }
-.screen-fade-leave-to   { opacity: 0; transform: translateY(-12px); }
+.screen-fade-enter-from { opacity: 0; }
+.screen-fade-leave-to   { opacity: 0; }
+/* 새 이미지를 위로 올려 페이드인 */
+.screen-fade-enter-active { z-index: 2; }
+.screen-fade-leave-active { z-index: 1; }
 
 .mobile-caption {
   display: none;
