@@ -15,9 +15,7 @@
 
       <!-- 스토어 묶음 -->
       <div class="cards-wrap">
-
-        <!-- 스토어 버튼 컬럼 -->
-        <div class="store-col">
+        <div class="store-wrap">
 
           <!-- ① App Store 버튼 — 누르면 바로 이동 -->
           <a
@@ -38,43 +36,25 @@
             </div>
           </a>
 
-          <!-- ② Google Play — 곧 출시 -->
-          <div class="store-btn store-btn-soon" aria-disabled="true">
-            <div class="store-icon store-icon-play">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M3.6 2.2c-.25.27-.4.69-.4 1.23v17.14c0 .54.15.96.4 1.23l.07.06L13.4 12.1v-.2L3.67 2.14l-.07.06z" fill="#3DDB99"/>
-                <path d="M16.7 15.4l-3.3-3.3v-.2l3.3-3.3.08.05 3.9 2.22c1.12.63 1.12 1.67 0 2.31l-3.9 2.22-.08.05z" fill="#3DDB99"/>
-                <path d="M16.78 15.35L13.4 12 3.6 21.8c.37.39.98.44 1.66.06l11.52-6.5z" fill="#3DDB99"/>
-                <path d="M16.78 8.65L5.26 2.14C4.58 1.76 3.97 1.81 3.6 2.2L13.4 12l3.38-3.35z" fill="#3DDB99"/>
+          <!-- ② QR 카드 (App Store 전용) -->
+          <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
+            <div class="card-glow" :class="{ visible: hovered }" />
+            <div class="qr-inner">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://apps.apple.com/kr/app/%EB%94%94%EB%94%A7-didit-ai-%EC%97%85%EB%AC%B4-%ED%9A%8C%EA%B3%A0/id6761548843&margin=8&color=0b0f14&bgcolor=ffffff"
+                alt="App Store QR 코드"
+                class="qr-img"
+              />
+            </div>
+            <p class="qr-caption caption-1 font-medium">
+              <svg class="qr-apple" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
               </svg>
-            </div>
-            <div class="store-meta">
-              <p class="store-sub caption-2 font-regular">곧 만나요</p>
-              <p class="store-name heading-1 font-extrabold">Google Play</p>
-            </div>
-            <span class="soon-pill caption-2 font-bold">곧 출시</span>
+              iPhone으로 스캔하면 App Store로 이동해요
+            </p>
           </div>
 
         </div>
-
-        <!-- ③ QR 카드 (App Store 전용) -->
-        <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
-          <div class="card-glow" :class="{ visible: hovered }" />
-          <div class="qr-inner">
-            <img
-              src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://apps.apple.com/kr/app/%EB%94%94%EB%94%A7-didit-ai-%EC%97%85%EB%AC%B4-%ED%9A%8C%EA%B3%A0/id6761548843&margin=8&color=0b0f14&bgcolor=ffffff"
-              alt="App Store QR 코드"
-              class="qr-img"
-            />
-          </div>
-          <p class="qr-caption caption-1 font-medium">
-            <svg class="qr-apple" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-            </svg>
-            iPhone으로 스캔하면 App Store로 이동해요
-          </p>
-        </div>
-
       </div>
 
       <!-- 웹 보조 링크 -->
@@ -149,16 +129,14 @@ const hovered = ref(false)
 .cards-wrap {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  gap: 16px;
 }
 
-.store-col {
+.store-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: stretch;
   gap: 10px;
-  width: 280px;
+  width: 260px;
 }
 
 /* ── App Store 버튼 ── */
@@ -205,7 +183,6 @@ const hovered = ref(false)
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   padding: 16px;
-  width: 230px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -254,27 +231,6 @@ const hovered = ref(false)
   aspect-ratio: 1;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-}
-
-/* ── Google Play 곧 출시 ── */
-.store-btn-soon {
-  position: relative;
-  cursor: default;
-  opacity: 0.7;
-}
-.store-icon-play {
-  background: #111;
-}
-.soon-pill {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: rgba(61, 219, 153, 0.15);
-  color: #3ddb99;
-  border: 1px solid rgba(61, 219, 153, 0.3);
-  padding: 2px 9px;
-  border-radius: 999px;
-  letter-spacing: 0.02em;
 }
 
 /* ── 웹 보조 링크 ── */
@@ -329,12 +285,6 @@ const hovered = ref(false)
 @media (max-width: 768px) {
   .download-section { padding: 72px 24px; }
   .download-header  { margin-bottom: 40px; }
-  .cards-wrap {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .store-col { width: 100%; max-width: 320px; }
-  .store-card { width: 100%; max-width: 320px; }
+  .store-wrap { width: 100%; max-width: 340px; }
 }
 </style>
