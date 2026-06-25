@@ -70,9 +70,9 @@
 
 <style scoped>
 .footer {
-  background: #f8faf9;
-  border-top: 1px solid rgba(15, 23, 42, 0.08);
-  color: #0f172a;
+  background: #0b0f14;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
   padding: 72px 24px 40px;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .brand-desc {
-  color: #64748b;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 20px;
 }
 
@@ -138,14 +138,14 @@
 }
 
 .link-group-title {
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 
 .footer-link {
-  color: #475569;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s;
   line-height: 1;
@@ -163,7 +163,7 @@
 .footer-divider {
   width: 100%;
   height: 1px;
-  background: rgba(15, 23, 42, 0.07);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ── 하단 ── */
@@ -177,7 +177,7 @@
 
 .copyright,
 .company-info {
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 /* ── 모바일 ── */
