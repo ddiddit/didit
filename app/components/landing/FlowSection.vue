@@ -60,10 +60,12 @@ function startCycle() {
   }, STEP_DURATION)
 }
 
+const { track } = useAmplitude()
 function goTo(idx: number) {
   if (idx === currentStep.value) return
   currentStep.value = idx
   startCycle()
+  track('landing_flow_step', { step: steps[idx].number, label: steps[idx].label })
 }
 
 onMounted(() => {

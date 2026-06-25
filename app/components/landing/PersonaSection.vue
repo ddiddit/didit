@@ -41,6 +41,13 @@ const personas = [
 ]
 
 const active = ref(0)
+
+const { track } = useAmplitude()
+function selectPersona(i: number) {
+  if (active.value === i) return
+  active.value = i
+  track('landing_persona_tab', { persona: personas[i].tab })
+}
 </script>
 
 <template>
@@ -62,7 +69,7 @@ const active = ref(0)
           :key="i"
           class="persona-tab body-2-normal font-bold"
           :class="{ active: active === i }"
-          @click="active = i"
+          @click="selectPersona(i)"
         >
           {{ p.tab }}
         </button>

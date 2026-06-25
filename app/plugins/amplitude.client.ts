@@ -10,8 +10,15 @@ export default defineNuxtPlugin(() => {
   if (!apiKey) return
 
   amplitude.init(apiKey, {
-    autocapture: false,
-    defaultTracking: { sessions: true },
+    autocapture: {
+      attribution: true, // 채널별/캠페인별 트래픽, AI 가시성
+      pageViews: true, // 페이지별 참여도
+      sessions: true,
+      elementInteractions: true, // 히트맵, 영역 인사이트
+      webVitals: true, // Web Vitals
+      formInteractions: true,
+      fileDownloads: true,
+    },
   })
 
   // 랜딩 페이지뷰 1회 기록
