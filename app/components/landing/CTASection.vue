@@ -36,7 +36,24 @@
             </div>
           </a>
 
-          <!-- ② QR 카드 -->
+          <!-- ② Google Play — 곧 출시 -->
+          <div class="store-btn store-btn-soon" aria-disabled="true">
+            <div class="store-icon store-icon-play">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M3.6 2.2c-.25.27-.4.69-.4 1.23v17.14c0 .54.15.96.4 1.23l.07.06L13.4 12.1v-.2L3.67 2.14l-.07.06z" fill="#3DDB99"/>
+                <path d="M16.7 15.4l-3.3-3.3v-.2l3.3-3.3.08.05 3.9 2.22c1.12.63 1.12 1.67 0 2.31l-3.9 2.22-.08.05z" fill="#3DDB99"/>
+                <path d="M16.78 15.35L13.4 12 3.6 21.8c.37.39.98.44 1.66.06l11.52-6.5z" fill="#3DDB99"/>
+                <path d="M16.78 8.65L5.26 2.14C4.58 1.76 3.97 1.81 3.6 2.2L13.4 12l3.38-3.35z" fill="#3DDB99"/>
+              </svg>
+            </div>
+            <div class="store-meta">
+              <p class="store-sub caption-2 font-regular">곧 만나요</p>
+              <p class="store-name heading-1 font-extrabold">Google Play</p>
+            </div>
+            <span class="soon-pill caption-2 font-bold">곧 출시</span>
+          </div>
+
+          <!-- ③ QR 카드 -->
           <div class="store-card" @mouseenter="hovered = true" @mouseleave="hovered = false">
             <div class="card-glow" :class="{ visible: hovered }" />
             <div class="qr-inner">
@@ -209,6 +226,27 @@ const hovered = ref(false)
   aspect-ratio: 1;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+}
+
+/* ── Google Play 곧 출시 ── */
+.store-btn-soon {
+  position: relative;
+  cursor: default;
+  opacity: 0.7;
+}
+.store-icon-play {
+  background: #111;
+}
+.soon-pill {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(61, 219, 153, 0.15);
+  color: #3ddb99;
+  border: 1px solid rgba(61, 219, 153, 0.3);
+  padding: 2px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
 }
 
 /* ── 웹 보조 링크 ── */
