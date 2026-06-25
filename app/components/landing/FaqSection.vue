@@ -68,9 +68,11 @@ function toggle(i: number) {
 
 <style scoped>
 .faq-section {
-  background: #0b0f14;
+  background: #ffffff;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
   padding: 100px 24px;
-  color: white;
+  color: #0f172a;
 }
 
 .faq-inner {
@@ -103,7 +105,7 @@ function toggle(i: number) {
 }
 
 .faq-sub {
-  color: rgba(255, 255, 255, 0.5);
+  color: #475569;
 }
 
 .faq-list {
@@ -116,15 +118,16 @@ function toggle(i: number) {
 }
 
 .faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
   transition: border-color 0.3s, background 0.3s;
 }
 .faq-item.open {
-  border-color: rgba(61, 219, 153, 0.25);
-  background: rgba(61, 219, 153, 0.04);
+  border-color: rgba(61, 219, 153, 0.5);
+  background: rgba(61, 219, 153, 0.05);
 }
 
 .faq-q {
@@ -138,16 +141,16 @@ function toggle(i: number) {
   border: none;
   cursor: pointer;
   text-align: left;
-  color: white;
+  color: #0f172a;
 }
 
 .faq-q-text {
-  color: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
 }
 
 .faq-icon {
   flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
   display: flex;
   transition: transform 0.3s, color 0.3s;
 }
@@ -171,7 +174,7 @@ function toggle(i: number) {
 }
 
 .faq-a {
-  color: rgba(255, 255, 255, 0.55);
+  color: #475569;
   padding: 2px 22px 22px;
   line-height: 1.7;
 }

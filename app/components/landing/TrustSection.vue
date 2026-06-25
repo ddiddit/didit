@@ -3,7 +3,8 @@ import { ref, onMounted } from 'vue'
 
 const stats = [
   { value: 104, suffix: '', label: '누적 작성된 회고', desc: '사용자들이 didit으로 쌓아온 회고예요.' },
-  { value: 442, suffix: '', label: 'AI와 주고받은 답변', desc: '질문과 대화로 채워진 기록이에요.' },
+  { value: 81, suffix: '', label: '함께하는 사용자', desc: 'didit과 함께 회고를 쌓고 있는 분들이에요.' },
+  { value: 400, suffix: '+', label: '누적 AI 대화', desc: '지금까지 AI와 주고받은 답변이에요.' },
   { value: 75, suffix: '%', label: '회고 완료율', desc: '시작한 회고를 끝까지 마친 비율이에요.' },
 ]
 
@@ -68,9 +69,11 @@ onMounted(() => {
 
 <style scoped>
 .trust-section {
-  background: #0b0f14;
+  background: #ffffff;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
   padding: 100px 24px;
-  color: white;
+  color: #0f172a;
 }
 
 .trust-inner {
@@ -107,26 +110,28 @@ onMounted(() => {
 }
 
 .trust-sub {
-  color: rgba(255, 255, 255, 0.5);
+  color: #475569;
 }
 
 .trust-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
 .trust-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 20px;
-  padding: 40px 28px;
+  padding: 40px 24px;
   text-align: center;
-  transition: border-color 0.3s, background 0.3s;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
 .trust-card:hover {
-  border-color: rgba(61, 219, 153, 0.25);
-  background: rgba(61, 219, 153, 0.04);
+  border-color: rgba(61, 219, 153, 0.5);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+  transform: translateY(-2px);
 }
 
 .trust-num {
@@ -142,18 +147,26 @@ onMounted(() => {
 }
 
 .trust-label {
-  color: white;
+  color: #0f172a;
   margin-bottom: 8px;
 }
 
 .trust-desc {
-  color: rgba(255, 255, 255, 0.45);
+  color: #64748b;
+}
+
+@media (max-width: 960px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
   .trust-section { padding: 72px 24px; }
   .trust-header { margin-bottom: 36px; }
-  .trust-grid { grid-template-columns: 1fr; gap: 14px; }
-  .trust-card { padding: 32px 24px; }
+  .trust-grid { gap: 12px; }
+  .trust-card { padding: 32px 20px; }
+}
+
+@media (max-width: 420px) {
+  .trust-grid { grid-template-columns: 1fr; }
 }
 </style>
